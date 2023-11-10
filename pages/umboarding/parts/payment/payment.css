@@ -132,6 +132,7 @@
   border-bottom: var(--purple-700) 2px solid;
 }
 
+
 .umboarding-payment-container-credicard-input-field-text-input-required {
   color: red;
 }
@@ -168,6 +169,12 @@
   display: flex;
   gap: 1.25rem;
   justify-content: space-between;
+}
+
+#umboarding-payment-container-credicard-input-field-text-cardrolder{
+  margin-top: 0.25rem;
+  font-size: var(--text-sm);
+  width: 24ch;
 }
 
 .umboarding-payment-container-credicard-input-fields .umboarding-payment-container-credicard-input-field-text:last-child input{

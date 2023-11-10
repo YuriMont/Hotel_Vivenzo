@@ -43,8 +43,10 @@
 .room-information-container-inputs-date input[type="date"] {
   border: none;
   outline: none;
+  padding-left: 0;
   font-size: var(--text-sm);
   font-weight: var(--font-light);
+  background-color: transparent;
   width: 100%;
 }
 

@@ -26,7 +26,7 @@ templateRoomInformation.innerHTML = `
   <div class="room-information-container-inputs-date">
   <label for="checkout">Check In</label>
   <div class="room-information-container-inputs-date-custom">
-      <input type="date" id="checkout"/>
+      <input type="date" id="checkin"/>
       <div class="room-information-container-inputs-date-calendar-icon">
         <img
           src="/components/room-information/icons/calendar.svg"
@@ -69,6 +69,8 @@ class RoomInformation extends HTMLElement {
     this.passwordInput = this.shadowRoot.getElementById("password");
 
     document.addEventListener("DOMContentLoaded", () => {
+      this.shadowRoot.getElementById('checkin').value = new Date().toISOString().split('T')[0];
+      this.shadowRoot.getElementById('checkout').value = new Date().toISOString().split('T')[0];
       this.passwordInput.disabled = true;
       this.editButton.src = "/components/room-information/icons/edit.svg";
       this.editButton.addEventListener("click", this.changePassword.bind(this));

@@ -2,7 +2,7 @@
 
 .umboarding-waiting-container {
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   display: flex;
   padding: 2rem;
   gap: 2rem;
@@ -47,5 +47,6 @@
   .umboarding-waiting-container{
     padding-left: 4rem;
     padding-right: 4rem;
+    height: 100vh;
   }
 }
