@@ -1,6 +1,6 @@
 const templateInputRange = document.createElement("template");
 templateInputRange.innerHTML = `
-<link rel="stylesheet" href="http://127.0.0.1:5500/components/range/input-range.css" />
+<link rel="stylesheet" href="/components/range/input-range.css" />
 
 <div class="input-ranger-container">
       <span id="input-ranger-container-span"></span>  
