@@ -1,0 +1,45 @@
+@import url("/main.css");
+
+.opt-input-container{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.opt-input-container-box[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield; /* Remover setas no Safari */
+}
+
+.opt-input-container-box[type="number"]::-webkit-inner-spin-button,
+.opt-input-container-box[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Remover setas no Chrome e Safari */
+  margin: 0; /* Mover os botões internos */
+}
+
+.opt-input-container-box {
+  background-color: white;
+  border-radius: var(--rounded-md);
+  border: none;
+  text-align: center;
+  width: 2rem;
+  padding: 0.5rem;
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.opt-input-container-box:focus {
+  outline: none;
+}
+
+.opt-input-container-box:nth-child(1) {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+
+.opt-input-container-box:nth-child(3) {
+    margin-right: 0.75rem;
+}

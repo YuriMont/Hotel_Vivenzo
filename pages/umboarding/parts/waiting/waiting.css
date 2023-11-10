@@ -1,0 +1,51 @@
+@import url("/main.css");
+
+.umboarding-waiting-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  padding: 2rem;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  color: white;
+  animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.umboarding-waiting-container span {
+  display: flex;
+  gap: 1rem;
+}
+
+.umboarding-waiting-container-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--rounded-full);
+  background-color: var(--orange-500);
+}
+
+.umboarding-waiting-container-dot-fill {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--rounded-full);
+  border: 1px solid var(--orange-500);
+}
+
+@keyframes coming-down {
+  0% {
+    transform: translateY(80%);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+@media (min-width: 600px) {
+  .umboarding-waiting-container{
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}

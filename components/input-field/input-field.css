@@ -1,0 +1,102 @@
+@import url("/main.css");
+
+.input-field-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.input-field-container-text {
+  position: relative;
+  margin-top: 0.5rem;
+}
+.input-field-container-text input {
+  width: 100%;
+  padding-top: 0.25rem;
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+  border: none;
+  background: none;
+  outline: none;
+  border-bottom: var(--purple-700) 2px solid;
+}
+.input-field-container-text label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  color: var(--gray-500);
+  transform: translateY(-50%);
+  font-size: var(--text-sm);
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.input-field-container-text input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield; /* Remover setas no Safari */
+}
+
+.input-field-container-text input[type="number"]::-webkit-inner-spin-button,
+.input-field-container-text input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Remover setas no Chrome e Safari */
+  margin: 0; /* Mover os botões internos */
+}
+
+.input-field-container-text input:focus ~ label,
+.input-field-container-text input:valid ~ label,
+.input-field-container-text input:disabled ~ label{
+  top: -0.25rem;
+  font-size: var(--text-2xs);
+}
+
+.input-field-container-popover {
+  position: relative;
+}
+
+.input-field-container-popover-content {
+  /*Transformar em block*/
+  display: none;
+  background-color: var(--gray-300);
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem;
+  font-weight: var(--font-light);
+  font-size: var(--text-xl);
+  text-align: center;
+  color: red;
+}
+
+.input-field-container-popover-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border: none;
+  background: none;
+}
+
+.input-field-container-popover-content:before {
+  position: absolute;
+  bottom: -0.5rem;
+  content: "";
+  right: calc(50% - 0.5rem);
+  border-style: solid;
+  border-width: 0 0.5rem 0.5rem 0.5rem;
+  transform: rotate(180deg);
+  border-color: transparent transparent var(--gray-300) transparent;
+  pointer-events: none;
+}
+
+@media (min-width: 600px) {
+  .input-field-container-text input {
+    width: 200%;
+  }
+
+  .input-field-container-text input:focus,
+  .input-field-container-text input:valid {
+    width: 200%;
+  }
+}

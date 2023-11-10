@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/pages/umboarding/parts/waiting/waiting.css" />
+    <title>Vinvenzo</title>
+  </head>
+  <body>
+    <script src="/components/spin/spin-loader.js"></script>
+    <section class="umboarding-waiting-container">
+      <h1>Um minuto, estamos concluindo sua compra</h1>
+      <spin-loader></spin-loader>
+      <img src="/pages/umboarding/parts/waiting/images/waiting.svg" alt="" />
+      <span>
+        <div class="umboarding-waiting-container-dot"></div>
+        <div class="umboarding-waiting-container-dot-fill"></div>
+      </span>
+    </section>
+    <script>
+      function redirect() {
+        setTimeout(function () {
+          window.location.href = "/pages/umboarding/parts/erro/erro.html";
+        }, 10000); // 10 segundos
+      }
+
+      window.onload = redirect;
+    </script>
+  </body>
+</html>

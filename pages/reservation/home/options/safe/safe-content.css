@@ -1,0 +1,92 @@
+@import url("/main.css");
+
+.safe-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.safe-content-container h2 {
+  padding-top: 2rem;
+  color: var(--purple-400);
+  font-size: var(--text-base);
+  font-weight: var(--font-regular);
+}
+
+.safe-content-container h3 {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+}
+
+.safe-content-container .safe-content-container-tutorial {
+  list-style-type: none;
+  list-style-position: outside;
+  padding-left: 2.75rem;
+}
+
+.safe-content-container .safe-content-container-tutorial li {
+  position: relative;
+  counter-increment: counter;
+}
+
+.safe-content-container .safe-content-container-tutorial li::before {
+  content: counter(counter);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -2.75rem;
+  color: white;
+  background-color: var(--purple-400);
+  border-radius: var(--rounded-xs);
+  padding: 0.25rem 0.5rem;
+  display: inline-block;
+  font-weight: var(--font-bold);
+  font-family: monospace;
+  font-size: var(--text-sm);
+}
+
+.safe-content-container li {
+  font-weight: var(--font-light);
+  font-size: var(--text-sm);
+  margin: 1rem 0px;
+}
+
+.safe-content-container strong {
+  font-weight: var(--font-light);
+  color: var(--purple-400);
+}
+
+.safe-content-container-info {
+  width: 100%;
+  height: auto;
+  border-radius: var(--rounded-md);
+}
+
+.safe-content-container-alert {
+  position: relative;
+  margin-top: 4rem;
+  padding: 2rem 1.5rem 2rem 1.5rem;
+  background-color: var(--gray-300);
+  border-radius: var(--rounded-md);
+  text-align: center;
+  font-weight: var(--font-bold);
+  font-size: var(--text-xs);
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.safe-content-container-alert-icon {
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem;
+  background-color: var(--purple-600);
+  border-radius: var(--rounded-full);
+}
+
+.safe-content-container-alert-icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+}

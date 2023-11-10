@@ -1,0 +1,30 @@
+@import url("/main.css");
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.search-input-container input[type="text"] {
+  background-color: var(--purple-400);
+  border-radius: var(--rounded-2xl);
+  width: 80%;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  color: white;
+  font-weight: var(--font-light);
+}
+
+.search-input-container input::placeholder {
+  color: white;
+}
+
+.search-input-container img {
+  position: absolute;
+  right: 14%;
+  pointer-events: none;
+}

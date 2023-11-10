@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/pages/reservation/home/home.css" />
+    <title>Vivenzo</title>
+  </head>
+  <body>
+    <script defer src="/components/header/header-page.js"></script>
+    <script defer src="/components/language-select/language-select.js"></script>
+    <script defer src="/components/footer/footer-page.js"></script>
+    <script defer src="/components/carrousel/carrosel.js"></script>
+    <script
+      defer
+      src="/components/room-information/room-information.js"
+    ></script>
+    <script defer src="/components/open-door-button/open-door-button.js"></script>
+    <script defer src="/components/popup/modal-popup.js"></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/breakfast/breakfast-content.js"
+    ></script>
+    <script defer src="/components/item-list/item-list.js"></script>
+    <script defer src="/components/info-card/info-card.js"></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/access/access-content.js"
+    ></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/access/limited/limited.js"
+    ></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/access/vip/vip.js"
+    ></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/parking/parking-content.js"
+    ></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/bed/bed-content.js"
+    ></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/minibar/minibar-content.js"
+    ></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/network/network-content.js"
+    ></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/safe/safe-content.js"
+    ></script>
+    <script defer src="/components/range/input-range.js"></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/lighting/lighting-content.js"
+    ></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/air-conditioning/air-conditioning-content.js"
+    ></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/tv/tv-content.js"
+    ></script>
+
+    <header-page
+      class="home-skeleton"
+      title-header="Hotel Vivenzo"
+    ></header-page>
+    <main class="home-container">
+      <section>
+        <h1 class="home-skeleton">Detalhes da reserva</h1>
+        <carrousel-content class="home-skeleton"></carrousel-content>
+
+        <room-information
+          class="home-skeleton"
+          reservation-code="GHJ056"
+          number-room="604"
+          password-room="7564#"
+        ></room-information>
+      </section>
+      <section>
+        <h1 class="home-skeleton">Opções</h1>
+        <!-- Reserva -->
+
+        <details class="home-skeleton home-container-box">
+          <summary>
+            <div class="home-container-box-option-title">
+              <h3>Reserva</h3>
+              <img src="/pages/reservation/home/icons/arrow-up.svg" alt="" />
+            </div>
+          </summary>
+          <div class="home-container-box-option">
+            <modal-popup class="home-container-box-option-icon">
+              <div slot="button-content">
+                <img src="/pages/reservation/home/icons/breakfast.svg" alt="" />
+                <p>Café da manhã</p>
+              </div>
+              <img
+                slot="icon-popup"
+                src="/pages/reservation/home/icons/breakfast.svg"
+                alt=""
+              />
+              <div slot="content">
+                <breakfast-content></breakfast-content>
+              </div>
+            </modal-popup>
+            <modal-popup class="home-container-box-option-icon">
+              <div slot="button-content">
+                <img src="/pages/reservation/home/icons/access.svg" alt="" />
+                <p>Acessos</p>
+              </div>
+              <img
+                slot="icon-popup"
+                src="/pages/reservation/home/icons/access.svg"
+                alt=""
+              />
+              <div slot="content">
+                <access-content></access-content>
+              </div>
+            </modal-popup>
+            <modal-popup class="home-container-box-option-icon">
+              <div slot="button-content">
+                <img src="/pages/reservation/home/icons/parking.svg" alt="" />
+                <p>Estacionamento</p>
+              </div>
+              <img
+                slot="icon-popup"
+                src="/pages/reservation/home/icons/parking.svg"
+                alt=""
+              />
+              <div slot="content">
+                <parking-content></parking-content>
+              </div>
+            </modal-popup>
+          </div>
+        </details>
+
+        <!-- Acomodação -->
+
+        <details class="home-skeleton home-container-box">
+          <summary>
+            <div class="home-container-box-option-title">
+              <h3>Acomodação</h3>
+              <img src="/pages/reservation/home/icons/arrow-up.svg" alt="" />
+            </div>
+          </summary>
+          <div class="home-container-box-option">
+            <modal-popup class="home-container-box-option-icon">
+              <div slot="button-content">
+                <img src="/pages/reservation/home/icons/bed.svg" alt="" />
+                <p>Cama</p>
+              </div>
+              <img
+                slot="icon-popup"
+                src="/pages/reservation/home/icons/bed.svg"
+                alt=""
+              />
+              <div slot="content">
+                <bed-content></bed-content>
+              </div>
+            </modal-popup>
+            <modal-popup class="home-container-box-option-icon">
+              <div slot="button-content">
+                <img src="/pages/reservation/home/icons/wifi.svg" alt="" />
+                <p>Internet</p>
+              </div>
+              <img
+                slot="icon-popup"
+                src="/pages/reservation/home/icons/wifi.svg"
+                alt=""
+              />
+              <div slot="content">
+                <network-content
+                  network-name="HotelVivenzo"
+                  network-password="vivenzo2020"
+                ></network-content>
+              </div>
+            </modal-popup>
+            <modal-popup class="home-container-box-option-icon">
+              <div slot="button-content">
+                <img src="/pages/reservation/home/icons/safe.svg" alt="" />
+                <p>Cofre</p>
+              </div>
+              <img
+                slot="icon-popup"
+                src="/pages/reservation/home/icons/safe.svg"
+                alt=""
+              />
+              <div slot="content">
+                <safe-content></safe-content>
+              </div>
+            </modal-popup>
+            <modal-popup class="home-container-box-option-icon">
+              <div slot="button-content">
+                <img src="/pages/reservation/home/icons/minibar.svg" alt="" />
+                <p>Frigoba</p>
+              </div>
+              <img
+                slot="icon-popup"
+                src="/pages/reservation/home/icons/minibar.svg"
+                alt=""
+              />
+              <div slot="content">
+                <minibar-content></minibar-content>
+              </div>
+            </modal-popup>
+          </div>
+        </details>
+
+        <!-- Controles -->
+        <details class="home-skeleton home-container-box">
+          <summary>
+            <div class="home-container-box-option-title">
+              <h3>Controles</h3>
+              <img src="/pages/reservation/home/icons/arrow-up.svg" alt="" />
+            </div>
+          </summary>
+          <div class="home-container-box-option">
+            <modal-popup class="home-container-box-option-icon">
+              <div slot="button-content">
+                <img src="/pages/reservation/home/icons/lamp.svg" alt="" />
+                <p>Iluminação</p>
+              </div>
+              <img
+                slot="icon-popup"
+                src="/pages/reservation/home/icons/lamp.svg"
+                alt=""
+              />
+              <div slot="content">
+                <lighting-content></lighting-content>
+              </div>
+            </modal-popup>
+            <modal-popup class="home-container-box-option-icon">
+              <div slot="button-content">
+                <img
+                  src="/pages/reservation/home/icons/air-conditioning.svg"
+                  alt=""
+                />
+                <p>Climatização</p>
+              </div>
+              <img
+                slot="icon-popup"
+                src="/pages/reservation/home/icons/air-conditioning.svg"
+                alt=""
+              />
+              <div slot="content">
+                <air-conditioning-content></air-conditioning-content>
+              </div>
+            </modal-popup>
+            <modal-popup class="home-container-box-option-icon">
+              <div slot="button-content">
+                <img src="/pages/reservation/home/icons/tv.svg" alt="" />
+                <p>TV</p>
+              </div>
+              <img
+                slot="icon-popup"
+                src="/pages/reservation/home/icons/tv.svg"
+                alt=""
+              />
+              <div slot="content">
+                <tv-content></tv-content>
+              </div>
+            </modal-popup>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <footer-page class="home-skeleton"></footer-page>
+
+    <script>
+      const allHomeSkeleton = document.querySelectorAll(".home-skeleton");
+      window.addEventListener("load", () => {
+        allHomeSkeleton.forEach((item) => {
+          item.classList.remove("home-skeleton");
+        });
+      });
+
+      document.querySelectorAll("details").forEach((element) => {
+        element.addEventListener("toggle", function () {
+          if (element.open) {
+            window.scrollTo({
+              top: document.body.scrollHeight,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

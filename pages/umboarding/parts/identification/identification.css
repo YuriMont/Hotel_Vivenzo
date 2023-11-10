@@ -1,0 +1,65 @@
+@import url("/main.css");
+
+.umboarding-identification-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+  
+  .umboarding-identification-container-select-language {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+  }
+  
+  .umboarding-identification-container h2{
+      font-size: var(--text-lg);
+      font-weight: var(--font-regular);
+  }
+  
+  .umboarding-identification-container-camera{
+      width: 80%;
+      height: 25%;
+      background-color: white;
+      border-radius: var(--rounded-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .umboarding-identification-container-camera span{
+      color: var(--gray-500);
+      font-weight: var(--font-semibold);
+      font-size: var(--text-lg);
+  }
+  
+  .umboarding-identification-container p{
+      font-size: var(--text-sm);
+      font-weight: var(--font-light);
+  }
+
+  
+  @keyframes coming-down {
+    0% {
+      transform: translateY(80%);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @media (min-width: 600px) {
+    .umboarding-identification-container {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+  

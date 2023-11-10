@@ -1,0 +1,43 @@
+@import url("/main.css");
+
+.umboarding-initial-container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  padding: 2rem;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.umboarding-initial-container-select-language {
+  position: absolute;
+  top: 1rem;
+}
+
+.umboarding-initial-container h1 {
+  text-align: left;
+}
+
+.umboarding-initial-container-next {
+  position: absolute;
+  bottom: 2rem;
+  border-radius: var(--rounded-full);
+  background-color: var(--purple-400);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  transform: rotate(270deg);
+}
+
+@media (min-width: 600px) {
+  .umboarding-initial-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}

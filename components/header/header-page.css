@@ -1,0 +1,43 @@
+@import url('/main.css');
+
+.header-page-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  border-bottom-left-radius: var(--rounded-lg);
+  border-bottom-right-radius: var(--rounded-lg);
+  height: 12vh;
+  font-size: var(--text-base);
+  font-weight: var(--font-regular);
+}
+
+.header-page-container h1{
+  font-size: var(--text-3xl);
+}
+
+.header-page-container-default{
+  background: linear-gradient(
+    90deg,
+    var(--purple-700) 0%,
+    var(--purple-600) 100%
+  );
+  height: 16vh;
+}
+
+.header-page-container-primary{
+  background-color: var(--purple-600);
+}
+
+.header-page-container button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  border-radius: var(--rounded-full);
+  padding: 0.25rem;
+  background: var(--purple-400);
+}
+
+

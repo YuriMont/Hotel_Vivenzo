@@ -1,0 +1,141 @@
+@import url("/main.css");
+
+*{
+  overflow: hidden;
+}
+
+.access-container-limited {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 1rem;
+  text-align: center;
+  animation: bounceInForward 2s ease 0s 1 normal forwards;
+  z-index: 1000;
+}
+
+.access-container-limited-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.25rem;
+  border-radius: 0.5rem;
+  background-color: var(--gray-300);
+}
+
+.access-container-limited-icon img {
+  width: 2.625rem;
+  height: 2.625rem;
+}
+
+.access-container-limited-icon h3 {
+  color: var(--purple-600);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-base);
+}
+
+.access-container-limited p {
+  text-align: center;
+  font-weight: 300;
+  font-size: var(--text-sm);
+  padding: 0 2rem;
+}
+
+.access-container-limited-nickname {
+  padding: 0.5rem 2rem;
+  font-size: var(--text-sm);
+  text-align: center;
+  background-color: var(--gray-300);
+  color: var(--gray-500);
+  border-radius: 0.25rem;
+}
+
+.access-container-limited-recommendation {
+  font-size: var(--text-xs);
+  color: var(--gray-500);
+}
+
+.access-container-limited-options {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  width: 80vw;
+}
+
+.access-container-limited-options span {
+  font-weight: var(--font-light);
+  font-size: var(--text-sm);
+}
+
+.access-container-limited-option-primary {
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  border: solid 2px var(--orange-500);
+  font-size: var(--text-sm);
+  color: var(--orange-500);
+  background-color: transparent;
+}
+
+.access-container-limited-option-secondary {
+  border-radius: 0.25rem;
+  border: solid 2px var(--orange-500);
+  padding: 0.5rem;
+  font-size: var(--text-sm);
+  background-color: var(--orange-500);
+  color: white;
+}
+
+@keyframes bounceInForward {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  38% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  55% {
+    animation-timing-function: ease-in;
+    transform: scale(0.7);
+  }
+
+  72% {
+    animation-timing-function: ease-out;
+    transform: scale(1);
+  }
+
+  81% {
+    animation-timing-function: ease-in;
+    transform: scale(0.84);
+  }
+
+  89% {
+    animation-timing-function: ease-out;
+    transform: scale(1);
+  }
+
+  95% {
+    animation-timing-function: ease-in;
+    transform: scale(0.95);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    transform: scale(1);
+  }
+}

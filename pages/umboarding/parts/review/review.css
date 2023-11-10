@@ -1,0 +1,103 @@
+@import url("/main.css");
+
+.umboarding-review-container-select-language {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.umboarding-review-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.umboarding-review-container h1 {
+  color: white;
+  text-align: center;
+}
+
+.umboarding-review-container ul li {
+  list-style: none;
+}
+
+.umboarding-review-container-box {
+  width: 80%;
+  border-radius: var(--rounded-lg);
+  border-top: 0.75rem solid var(--purple-700);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  background-color: white;
+}
+
+.umboarding-review-container-box li {
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid var(--gray-500);
+}
+
+.umboarding-review-container-box li:last-child {
+  border-bottom: none;
+}
+
+.umboarding-review-container-box-description {
+  color: var(--gray-500);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-light);
+}
+
+.umboarding-review-container-box-data {
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+}
+
+.umboarding-review-container-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.umboarding-review-container-link-default {
+  border-radius: var(--rounded-2xl);
+  border: 1px white solid;
+  color: white;
+  background-color: transparent;
+  padding: 0.5rem 2rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+}
+
+.umboarding-review-container-link-primary {
+  border-radius: var(--rounded-2xl);
+  border: none;
+  color: var(--purple-600);
+  background-color: white;
+  padding: 0.5rem 2rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+}
+
+@keyframes coming-down {
+  0% {
+    transform: translateY(80%);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+@media (min-width: 600px) {
+  .umboarding-review-container{
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}

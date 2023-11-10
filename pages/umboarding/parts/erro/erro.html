@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/pages/umboarding/parts/erro/erro.css" />
+    <title>Vinvenzo</title>
+  </head>
+  <body>
+    <section class="umboarding-error-container">
+      <img src="/pages/umboarding/parts/erro/images/erro.svg" alt="" />
+      <h1>
+        Hmm! Tentamos contatar o provedor de pagamento, mas ele não aprovou a
+        transação
+      </h1>
+      <p>
+        Isso geralmente ocorre quando o banco ou a operadora de crédito acredita
+        que esta possa ser uma compra fraudulenta e impede a operação
+        acreditando ser mais seguro assim.
+      </p>
+      <span>
+        <div class="umboarding-error-container-dot"></div>
+        <div class="umboarding-error-container-dot"></div>
+      </span>
+
+      <a href="/pages/umboarding/parts/payment/payment.html">
+        <img src="/pages/umboarding/parts/erro/images/left.svg" alt="" />
+      </a>
+    </section>
+    <script>
+      function redirect() {
+        setTimeout(function () {
+          window.location.href = "/pages/umboarding/parts/success/success.html";
+        }, 10000); // 10 segundos
+      }
+
+      window.onload = redirect;
+    </script>
+  </body>
+</html>

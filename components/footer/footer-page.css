@@ -1,0 +1,30 @@
+@import url('/main.css');
+
+.footer-page{
+    position: fixed;
+    z-index: 1000;
+    background-color: var(--purple-700);
+    border-top: 2px solid var(--gray-300);
+    height: 10vh;
+    width: 100vw;
+    bottom: 0;
+}
+
+.footer-page-nav{
+    padding-top: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-page-shortcut{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    font-size: var(--text-xs);
+    font-weight: 300;
+    text-transform: uppercase;
+    color: white;
+}

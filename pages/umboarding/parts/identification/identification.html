@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/pages/umboarding/parts/identification/identification.css"
+    />
+    <title>Vinvenzo</title>
+  </head>
+  <body>
+    <script src="/components/spin/spin-loader.js"></script>
+    <section id="identidifacation" class="umboarding-identification-container">
+      <language-select
+        class="umboarding-identification-container-select-language"
+      ></language-select>
+      <h2>Identidade / CNH / Passaporte</h2>
+      <div class="umboarding-identification-container-camera">
+        <span>Câmera</span>
+      </div>
+      <p>Por favor, tire uma foto do verso de seu documento de identificação</p>
+      <spin-loader></spin-loader>
+    </section>
+
+    <script>
+      function redirect() {
+        setTimeout(function () {
+          window.location.href = "/pages/umboarding/parts/review/review.html";
+        }, 10000); // 10 segundos
+      }
+
+      window.onload = redirect;
+    </script>
+  </body>
+</html>

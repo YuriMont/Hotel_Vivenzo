@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/pages/umboarding/parts/address/address.css" />
+    <title>Vinvenzo</title>
+  </head>
+  <body>
+    <script src="/components/language-select/language-select.js"></script>
+    <script src="/components/input-field/input-field.js"></script>
+
+    <section class="umboarding-address-container">
+      <language-select
+        class="umboarding-address-container-select-language"
+      ></language-select>
+
+      <div class="umboarding-address-container-card">
+        <ul class="umboarding-address-container-card-box">
+          <li onkeydown="nextInput(event, 0)">
+            <input-field
+              required-field="true"
+              text-field="CEP"
+            ></input-field>
+          </li>
+          <li onkeydown="nextInput(event, 1)">
+            <input-field
+              required-field="true"
+              type-input="number"
+              text-field="Número da residência"
+            ></input-field>
+          </li>
+          <li onkeydown="nextInput(event, 2)">
+            <input-field text-field="Ponto de referência"></input-field>
+          </li>
+        </ul>
+
+        <button
+          onclick="showAddress()"
+          class="umboarding-address-container-button-primary"
+        >
+          Confirmar
+        </button>
+      </div>
+
+      <div class="umboarding-address-container-card">
+        <h1>Seu endereço está correto?</h1>
+        <ul class="umboarding-address-container-card-box">
+          <li>
+            <div
+              class="umboarding-address-container-card-box-multiple-information"
+            >
+              <div>
+                <span class="umboarding-address-container-card-box-description"
+                  >Rua</span
+                >
+                <h3 class="umboarding-address-container-card-box-data">
+                  Rua Delmiro
+                </h3>
+              </div>
+              <div>
+                <span class="umboarding-address-container-card-box-description"
+                  >Número</span
+                >
+                <h3 class="umboarding-address-container-card-box-data">1566</h3>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="umboarding-address-container-card-box-description"
+              >Ponto de referência</span
+            >
+            <h3 class="umboarding-address-container-card-box-data">
+              Próximo ao Mc Donalds
+            </h3>
+          </li>
+          <li>
+            <div
+              class="umboarding-address-container-card-box-multiple-information"
+            >
+              <div>
+                <span class="umboarding-address-container-card-box-description"
+                  >Cidade</span
+                >
+                <h3 class="umboarding-address-container-card-box-data">
+                  Paulo Afonso
+                </h3>
+              </div>
+              <div>
+                <span class="umboarding-address-container-card-box-description"
+                  >Estado</span
+                >
+                <h3 class="umboarding-address-container-card-box-data">BA</h3>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="umboarding-address-container-card-box-description"
+              >CEP</span
+            >
+            <h3 class="umboarding-address-container-card-box-data">
+              48 625-586
+            </h3>
+          </li>
+          <li>
+            <span class="umboarding-address-container-card-box-description"
+              >Pais</span
+            >
+            <h3 class="umboarding-address-container-card-box-data">Brasil</h3>
+          </li>
+        </ul>
+        <div class="umboarding-address-container-buttons">
+          <button
+            onclick="hideAddress()"
+            class="umboarding-address-container-button-default"
+          >
+            Não
+          </button>
+          <button
+            onclick="nextPage()"
+            class="umboarding-address-container-button-primary"
+          >
+            Sim
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <script src="/pages/umboarding/parts/address/addres.js"></script>
+  </body>
+</html>

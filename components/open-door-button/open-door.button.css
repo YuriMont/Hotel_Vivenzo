@@ -1,0 +1,50 @@
+@import url("/main.css");
+
+.open-door-container {
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  border: none;
+  border-radius: var(--rounded-md);
+  color: white;
+  background-color: #22c55e;
+  padding: 0.5rem 1rem;
+}
+
+.open-door-container:not(:disabled){
+  animation: pulse 2s ease 0s infinite normal forwards;
+}
+
+.open-door-container:disabled {
+  background-image: linear-gradient(
+    to right,
+    #dc2626 0%,
+    #dc2626 50%,
+    #22c55e 50%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: progress 5s ease forwards;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes progress {
+  0% {
+    background-position: 0 100%;
+  }
+  50% {
+    background-position: 0 0;
+  }
+}

@@ -1,0 +1,126 @@
+@import url("/main.css");
+
+.umboarding-address-container-select-language {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 1000;
+}
+
+.umboarding-address-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.umboarding-address-container-card h1 {
+  color: white;
+  text-align: center;
+}
+
+.umboarding-address-container-card ul li {
+  list-style: none;
+}
+
+.umboarding-address-container-card{
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  padding: 5rem 1rem;
+  animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.umboarding-address-container-card:last-of-type{
+  display: none;
+}
+
+.umboarding-address-container-card-box {
+  width: 80%;
+  border-radius: var(--rounded-lg);
+  border-top: 0.75rem solid var(--purple-700);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  background-color: white;
+}
+
+
+.umboarding-address-container-card-box li {
+  padding: 0.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--gray-500);
+}
+
+.umboarding-address-container-card-box-multiple-information {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.umboarding-address-container-card-box-multiple-information div:first-of-type {
+  display: flex;
+  flex-direction: column;
+}
+
+.umboarding-address-container-card-box li:last-child {
+  border-bottom: none;
+}
+
+.umboarding-address-container-card-box-description {
+  color: var(--gray-500);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-light);
+}
+
+.umboarding-address-container-card-box-data {
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+}
+
+.umboarding-address-container-buttons {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.umboarding-address-container-button-default {
+  border-radius: var(--rounded-2xl);
+  border: 1px white solid;
+  color: white;
+  background-color: transparent;
+  padding: 0.5rem 2rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+}
+
+.umboarding-address-container-button-primary {
+  border-radius: var(--rounded-2xl);
+  border: none;
+  color: var(--purple-600);
+  background-color: white;
+  padding: 0.5rem 2rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+}
+
+@keyframes coming-down {
+  0% {
+    transform: translateY(80%);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (min-width: 600px) {
+  .umboarding-address-container-select-language  {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}

@@ -1,0 +1,55 @@
+@import url("/main.css");
+
+.parking-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.parking-content-container h2 {
+  padding-top: 2rem;
+  color: var(--purple-400);
+  font-size: var(--text-base);
+  font-weight: var(--font-regular);
+}
+
+.parking-content-container p {
+  font-size: var(--text-sm);
+
+}
+
+.parking-content-container-form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px var(--gray-300);
+}
+
+.parking-content-container-form input {
+  background-color: var(--gray-200);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  font-weight: var(--font-light);
+  font-size: var(--text-base);
+  text-align: center;
+}
+
+.parking-content-container-form button {
+  background-color: var(--orange-500);
+  color: white;
+  font-weight: var(--font-regular);
+  font-size: var(--text-base);
+  padding: 0.75rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.parking-content-container-added-vehicles-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}

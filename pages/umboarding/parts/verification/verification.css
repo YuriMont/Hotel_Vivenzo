@@ -1,0 +1,166 @@
+@import url("/main.css");
+
+.umboarding-verification-container-select-language {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.umboarding-verification-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  padding: 2rem;
+}
+
+.umboarding-verification-container-operation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.umboarding-verification-container-box {
+  position: relative;
+  width: 100%;
+  border-radius: var(--rounded-lg);
+  border-top: 0.75rem solid var(--purple-700);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  background-color: white;
+  padding: 1rem 2rem;
+  padding-top: 0.5rem;
+}
+
+.umboarding-verification-container-box span {
+  position: absolute;
+  bottom: -1.75rem;
+  right: 0;
+  padding: 0.25rem;
+  border-radius: var(--rounded-sm);
+  background-color: var(--purple-400);
+  color: white;
+  font-size: var(--text-xs);
+  font-weight: var(--font-light);
+}
+
+.umboarding-reservation-container-submit-code {
+  display: none;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.umboarding-reservation-container-submit-code-resend{
+  display: none;
+  border: none;
+  font-weight: var(--font-light);
+  color: white;
+  padding: 0.5rem;
+  border-radius: var(--rounded-sm);
+  background-color: var(--purple-400);
+  font-size: var(--text-sm);
+}
+
+.umboarding-reservation-container-submit-code button:disabled {
+  opacity: 0.7;
+}
+
+.umboarding-reservation-container-submit-code-button{
+  display: block;
+  border-radius: var(--rounded-2xl);
+  border: none;
+  color: var(--purple-600);
+  background-color: white;
+  padding: 0.5rem 2rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+}
+
+#umboarding-container-confirmation-button {
+  border-radius: var(--rounded-2xl);
+  border: none;
+  color: var(--purple-600);
+  background-color: white;
+  padding: 0.5rem 2rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#umboarding-container-confirmation-button:disabled {
+  opacity: 0.7;
+}
+
+.umboarding-verification-container-opt-code {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.umboarding-verification-container-opt-code span {
+  display: none;
+  color: white;
+  font-size: var(--text-xs);
+  font-weight: var(--font-light);
+  animation: shake 2s ease 0s 1 normal forwards;
+}
+
+.umboarding-container-submit-code span {
+  color: white;
+  font-size: var(--text-xs);
+  font-weight: var(--font-light);
+}
+
+@keyframes coming-down {
+  0% {
+    transform: translateY(80%);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70% {
+    transform: translateX(-5px);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: translateX(5px);
+  }
+
+  80% {
+    transform: translateX(3px);
+  }
+
+  90% {
+    transform: translateX(-3px);
+  }
+}
+
+@media (min-width: 600px) {
+  .umboarding-verification-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}

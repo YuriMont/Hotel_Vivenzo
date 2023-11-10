@@ -1,0 +1,77 @@
+@import url("http://127.0.0.1:5500/main.css");
+
+.bed-content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.bed-content-container h2 {
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+  color: var(--purple-400);
+  font-size: var(--text-base);
+  font-weight: var(--font-regular);
+}
+
+
+.bed-content-container ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.bed-content-container li {
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.bed-content-container-confirmation {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bed-content-container-confirmation span {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gray-500);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+}
+
+.bed-content-container-confirmation button {
+  background-color: var(--orange-500);
+  border: none;
+  border-radius: var(--rounded-md);
+  padding: 1rem;
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: white;
+  transition: opacity 0.5s ease-out;
+}
+
+.bed-content-container-complain-button {
+  position: relative;
+  top: -0.5rem;
+  padding-left: 0.5rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  justify-content: end;
+}
+
+.bed-content-container-complain-button button {
+  background-color: white;
+  font-weight: var(--font-semibold);
+  border-radius: var(--rounded-xs);
+  font-size: var(--text-2xs);
+  color: var(--orange-500);
+  border: 1px solid var(--orange-500);
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+}
+
+.bed-content-container button:active {
+  opacity: 0.7;
+}
