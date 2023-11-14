@@ -5,15 +5,18 @@
     z-index: 1000;
     background-color: var(--purple-700);
     border-top: 2px solid var(--gray-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 10vh;
     width: 100vw;
     bottom: 0;
 }
 
 .footer-page-nav{
-    padding-top: 0.75rem;
     display: flex;
     align-items: center;
+    width: 100vw;
     justify-content: space-around;
 }
 

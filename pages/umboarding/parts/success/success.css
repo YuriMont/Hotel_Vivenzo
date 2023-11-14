@@ -32,9 +32,7 @@
 }
 
 .umboarding-success-container a {
-  position: absolute;
-  bottom: 0;
-  right: 2rem;
+  margin-top: 2rem;
   border-radius: var(--rounded-full);
   background-color: var(--purple-400);
   padding: 0.5rem;
@@ -43,6 +41,22 @@
   justify-content: center;
   width: 2rem;
   height: 2rem;
+  animation: pulse 2s ease 0s infinite normal forwards;
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes coming-down {

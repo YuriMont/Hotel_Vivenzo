@@ -7,7 +7,7 @@ templateAccessContentVip.innerHTML = `
           src="/pages/reservation/home/options/access/vip/icons/vip.svg"
           alt=""
         />
-        <h3>limitado</h3>
+        <h3>Exclusivo</h3>
       </div>
       <p>Compartilha apenas a senha da porta e os controles eletônicos.</p>
       <p>Você terá acesso ao quarto e poderá alterar a senha.</p>

@@ -15,6 +15,7 @@
 }
 
 .open-door-container:disabled {
+  position: relative;
   background-image: linear-gradient(
     to right,
     #dc2626 0%,
@@ -22,8 +23,19 @@
     #22c55e 50%
   );
   background-size: 200% 100%;
-  background-position: 100% 0;
-  animation: progress 5s ease forwards;
+  background-position: 0 100%;
+  animation: progress 5s linear forwards;
+}
+
+.open-door-container:disabled::after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  position: absolute;
+  border: 2px solid transparent;
+  top: -4px;
+  left: -4px;
 }
 
 @keyframes pulse {
@@ -32,7 +44,7 @@
   }
 
   50% {
-    transform: scale(1.1);
+    transform: scale(1.02);
   }
 
   100% {
@@ -40,11 +52,20 @@
   }
 }
 
+@keyframes spin {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes progress {
   0% {
-    background-position: 0 100%;
+    background-position: 100% 0;
   }
-  50% {
+  100% {
     background-position: 0 0;
   }
 }
