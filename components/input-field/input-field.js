@@ -77,7 +77,7 @@ class InputField extends HTMLElement {
 
   setValueInput(value) {
     this.initialText = value
-    this.inputField.setAttribute("value", value);
+    this.inputField.value = value
   }
 
   getValueInput() {

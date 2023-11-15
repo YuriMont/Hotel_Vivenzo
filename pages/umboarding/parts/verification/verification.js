@@ -68,6 +68,8 @@ function enableControls() {
   allBoxSpans.forEach((element, i) => {
     element.style.display = "block";
     element.innerHTML = "Trocar";
+    allInputs.item(i).setValueInput(userInformation[i].data)
+    stopCountdown(i)
     //botão desabilitado
     element.addEventListener("click", () => disableControls(i));
     allInputs.item(i).setIsDisabledInput(true)
@@ -109,7 +111,6 @@ function disableControls(index) {
 allInputs.forEach((item, index) => {
   item.addEventListener("verifyText", (event) => {
     submitCodeButtons.item(index).disabled = !event.detail
-    allBoxSpans.item(index).style.display = event.detail ? "none" : "block";
   });
 });
 

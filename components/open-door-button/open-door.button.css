@@ -24,7 +24,7 @@
   );
   background-size: 200% 100%;
   background-position: 0 100%;
-  animation: progress 5s linear forwards;
+  animation: progress 4s ease forwards;
 }
 
 .open-door-container:disabled::after{
@@ -44,7 +44,7 @@
   }
 
   50% {
-    transform: scale(1.02);
+    transform: scale(1.01);
   }
 
   100% {
