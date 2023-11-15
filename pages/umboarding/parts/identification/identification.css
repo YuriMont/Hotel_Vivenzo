@@ -26,19 +26,30 @@
   }
   
   .umboarding-identification-container-camera{
-      width: 80%;
-      height: 25%;
+      padding: 1rem;
       background-color: white;
       border-radius: var(--rounded-lg);
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
+      gap: 0.25rem;
   }
   
+  .umboarding-identification-container-camera img{
+    object-fit: contain;
+    height: 240px;
+    width: 100%;
+  }
+
   .umboarding-identification-container-camera span{
-      color: var(--gray-500);
-      font-weight: var(--font-semibold);
-      font-size: var(--text-lg);
+    margin-top: 4px;
+    color: var(--gray-500);
+    font-weight: var(--font-semibold);
+  }
+
+  .umboarding-identification-container-camera input{
+    display: none;
   }
   
   .umboarding-identification-container p{

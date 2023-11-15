@@ -15,22 +15,49 @@
       <language-select
         class="umboarding-identification-container-select-language"
       ></language-select>
-      <h2>Identidade / CNH / Passaporte</h2>
-      <div class="umboarding-identification-container-camera">
-        <span>Câmera</span>
-      </div>
-      <p>Por favor, tire uma foto do verso de seu documento de identificação</p>
-      <spin-loader></spin-loader>
+      <h2>
+        Documentos aceitos<br />
+        RG / CNH / Passaporte
+      </h2>
+      <label for="image" class="umboarding-identification-container-camera">
+        <img
+          src="/pages/umboarding/parts/identification/images/identification.png"
+          alt=""
+        />
+        <input id="image" type="file" accept="image/*" />
+        <span>Clique aqui para inserir seu documento!</span>
+      </label>
     </section>
 
     <script>
+      const image = document.querySelector(
+        ".umboarding-identification-container-camera img"
+      );
+      const input = document.getElementById("image");
+
+      function exibirPreview() {
+        // Verifica se um arquivo foi selecionado
+        if (input.files && input.files[0]) {
+          var leitor = new FileReader();
+
+          leitor.onload = function (e) {
+            image.src = e.target.result;
+          };
+
+          // Lê o arquivo como uma URL de dados
+          leitor.readAsDataURL(input.files[0]);
+        }
+      }
+
+      input.addEventListener("change", exibirPreview);
+
       function redirect() {
         setTimeout(function () {
           window.location.href = "/pages/umboarding/parts/review/review.html";
         }, 10000); // 10 segundos
       }
 
-      window.onload = redirect;
+      //window.onload = redirect;
     </script>
   </body>
 </html>
