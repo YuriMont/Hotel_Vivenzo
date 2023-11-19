@@ -4,7 +4,7 @@ templateUmboardingPage.innerHTML = `
 <section id="initial" class="umboarding-initial-container">
         <language-select
           class="umboarding-initial-container-select-language"
-          size-language="lg"
+          
           is-open="true"
         ></language-select>
         <img src="/pages/umboarding/images/person.svg" alt="" />
@@ -12,8 +12,7 @@ templateUmboardingPage.innerHTML = `
         <a
           href="/pages/umboarding/parts/identification/identification.html"
           class="umboarding-initial-container-next"
-          ><img src="/pages/umboarding/images/left.svg" alt=""
-        /></a>
+          >Continuar</a>
       </section>
 </div>
 `;
@@ -25,6 +24,9 @@ class UmboardingPage extends HTMLElement {
 
     let clone = templateUmboardingPage.content.cloneNode(true);
     this.shadowRoot.appendChild(clone);
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('/pages/umboarding/parts/identification/identification.html');
+    });
   }
 
 }

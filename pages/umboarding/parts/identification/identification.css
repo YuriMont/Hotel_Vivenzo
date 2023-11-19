@@ -1,118 +1,190 @@
 @import url("/main.css");
 
 .umboarding-identification-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    padding: 2rem;
-    gap: 2rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
-  
-  .umboarding-identification-container-select-language {
-      position: absolute;
-      right: 1rem;
-      top: 1rem;
-  }
-  
-  .umboarding-identification-container h2{
-      font-size: var(--text-lg);
-      font-weight: var(--font-regular);
-  }
-  
-  .umboarding-identification-container-camera{
-      padding: 1rem;
-      background-color: white;
-      border-radius: var(--rounded-lg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 0.25rem;
-  }
-  
-  .umboarding-identification-container-camera img{
-    object-fit: contain;
-    height: 240px;
-    width: 100%;
-  }
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  padding: 2rem;
+  gap: 2rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
 
-  .umboarding-identification-container-camera span{
-    position: relative;
-    top: -1rem;
-    color: var(--gray-500);
-    font-weight: var(--font-semibold);
-  }
+.umboarding-identification-container:nth-of-type(1){
+  display: flex;
+}
 
-  .umboarding-identification-container-camera input{
-    display: none;
-  }
-  
-  .umboarding-identification-container p{
-      font-size: var(--text-sm);
-      font-weight: var(--font-light);
-  }
+.umboarding-identification-container-select-language {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
 
-  .umboarding-identification-container-verification{
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-  }
+.umboarding-identification-container h2 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-regular);
+}
 
-  .umboarding-identification-container-verification img{
-    margin-bottom: 1rem;
-    height: 200px;
-    width: 300px;
-  }
+.umboarding-identification-container-camera {
+  padding: 1rem;
+  background-color: white;
+  border-radius: var(--rounded-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 
-  .umboarding-identification-container-verification-controls{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
+.umboarding-identification-container-camera img {
+  object-fit: contain;
+  height: 240px;
+  width: 100%;
+}
 
-  .umboarding-identification-container-verification-controls-primary{
-    border: 1px solid white;
-    border-radius: var(--rounded-xl);
-    background-color: white;
-    color: var(--purple-600);
-    padding: 0.5rem 1rem;
-    font-size: var(--text-xs);
-    font-weight: var(--text-medium);
-    text-transform: uppercase;
-  }
+.umboarding-identification-container-camera span {
+  position: relative;
+  top: -1rem;
+  color: var(--gray-500);
+  font-weight: var(--font-semibold);
+}
 
-  .umboarding-identification-container-verification-controls-secondary{
-    border: 1px solid white;
-    border-radius: var(--rounded-xl);
-    color: white;
-    background-color: transparent;
-    padding: 0.5rem 1rem;
-    font-size: var(--text-xs);
-    font-weight: var(--text-medium);
-    text-transform: uppercase;
+.umboarding-identification-container-camera input {
+  display: none;
+}
+
+.umboarding-identification-container p {
+  font-size: var(--text-sm);
+  font-weight: var(--font-light);
+}
+
+.umboarding-identification-container-verification {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.umboarding-identification-container-verification img {
+  margin-bottom: 1rem;
+  height: 200px;
+  width: 300px;
+}
+
+.umboarding-identification-container-verification-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.umboarding-identification-container-verification-controls-primary {
+  border: 1px solid white;
+  border-radius: var(--rounded-xl);
+  background-color: white;
+  color: var(--purple-600);
+  padding: 0.5rem 1rem;
+  font-size: var(--text-xs);
+  font-weight: var(--text-medium);
+  text-transform: uppercase;
+}
+
+.umboarding-identification-container-verification-controls-secondary {
+  border: 1px solid white;
+  border-radius: var(--rounded-xl);
+  color: white;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  font-size: var(--text-xs);
+  font-weight: var(--text-medium);
+  text-transform: uppercase;
+}
+
+@keyframes coming-down {
+  0% {
+    transform: translateY(80%);
   }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (min-width: 600px) {
+  .umboarding-identification-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.umboarding-identification-container h1{
+  position: absolute;
+  color: white;
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  animation: blink 2s infinite;
+  top: 1rem;
+}
+
+.umboarding-identification-container-content {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.umboarding-identification-container-wrapper h1{
+  position: relative;
+  color: white;
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  animation: blink 2s infinite;
+  top: -3.5rem;
+}
+
+.umboarding-identification-container-wrapper{
+  position: relative;
+  border: 2px solid white;
+  width: 80vw;
+  height: 30vh;
+  background-color: transparent;
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
+  color: white;
+  z-index: 1;
+}
+
+.umboarding-identification-container-controls {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.umboarding-identification-container-controls button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: var(--rounded-full);
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 4rem;
+  height: 4rem;
+}
+
+.umboarding-identification-container-controls button img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
 
 
-  @keyframes coming-down {
-    0% {
-      transform: translateY(80%);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
-
-  @media (min-width: 600px) {
-    .umboarding-identification-container {
-      padding-left: 4rem;
-      padding-right: 4rem;
-    }
-  }
-  
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
