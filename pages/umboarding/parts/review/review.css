@@ -24,7 +24,15 @@
   text-align: center;
 }
 
-.umboarding-review-container img{
+.umboarding-review-container-documents{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.umboarding-review-container-documents img{
   width: 300px;
   height: 200px;
 }
@@ -34,7 +42,7 @@
 }
 
 .umboarding-review-container-box {
-  width: 80%;
+  width: 90%;
   border-radius: var(--rounded-lg);
   border-top: 0.75rem solid var(--purple-700);
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -42,7 +50,7 @@
 }
 
 .umboarding-review-container-box li {
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid var(--gray-500);
 }
 
@@ -105,5 +113,9 @@
   .umboarding-review-container{
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+
+  .umboarding-review-container-documents{
+    flex-direction: row;
   }
 }
