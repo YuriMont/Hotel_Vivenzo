@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vivenzo</title>
+    <link rel="stylesheet" href="/pages/umboarding/umboarding.css" />
+  </head>
+  <body>
+    <script defer src="/components/language-select/language-select.js"></script>
+    <script defer src="/pages/umboarding/umboarding.js"></script>
+    <section id="initial" class="umboarding-initial-container">
+      <language-select
+        class="umboarding-initial-container-select-language"
+        is-open="true"
+      ></language-select>
+      <img src="/pages/umboarding/images/person.svg" alt="" />
+      <h1>Você está prestes a usufruir de sua estadia no hotel Vivenzo</h1>
+      <a
+        href="/pages/umboarding/parts/identification/identification.html"
+        class="umboarding-initial-container-next"
+        >Continuar</a
+      >
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/pages/umboarding/parts/identification/identification.html");
+      });
+    </script>
+  </body>
+</html>
