@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vivenzo</title>
     <link rel="stylesheet" href="/pages/umboarding/umboarding.css" />
+    <script defer src ="/components/spin/spin-loader.js"></script>
   </head>
   <body>
     <script defer src="/components/language-select/language-select.js"></script>
     <script defer src="/pages/umboarding/umboarding.js"></script>
-    <section id="initial" class="umboarding-initial-container">
+    
+    <spin-loader class="umboarding-initial-container-spinner"></spin-loader>
+
+    <section class="umboarding-initial-container">
       <language-select
         class="umboarding-initial-container-select-language"
         is-open="true"
@@ -24,7 +28,9 @@
     </section>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+      window.addEventListener("load", () => {
+        document.querySelector(".umboarding-initial-container").style.display = "flex";
+        document.querySelector(".umboarding-initial-container-spinner").style.display = "none";
         fetch("/pages/umboarding/parts/identification/identification.html");
       });
     </script>

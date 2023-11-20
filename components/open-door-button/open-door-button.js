@@ -16,15 +16,29 @@ class OpenDoorButton extends HTMLElement {
     this.button = this.shadowRoot.getElementById("button");
     document.addEventListener("DOMContentLoaded", () => {
       this.button.addEventListener("click", () => {
-        this.button.disabled = !this.button.disabled;
-        setTimeout(this.handleToggleChangeDisabled.bind(this), 5000);
+        const totalTime = 5;
+
+        let timeRemaining = totalTime;
+
+        const interval = setInterval(() => {
+          this.button.disabled = true;
+          this.button.innerHTML = `Abertar <br> (${timeRemaining}s)`;
+
+          if (timeRemaining <= 0) {
+            clearInterval(interval);
+            this.button.disabled = false;
+            this.button.innerHTML = "Abrir <br> Porta";
+          } else {
+            timeRemaining--;
+          }
+        }, 1000);
       });
     });
   }
 
   handleToggleChangeDisabled() {
-    if(this.button.disabled){
-        this.button.disabled = false; 
+    if (this.button.disabled) {
+      this.button.disabled = false;
     }
   }
 }
