@@ -4,10 +4,11 @@
   font-size: var(--font-sm);
   font-weight: var(--font-semibold);
   border: none;
-  border-radius: var(--rounded-md);
+  border-radius: var(--rounded-xs);
   color: white;
-  background-color: #22c55e;
+  background-color: var(--purple-500);
   padding: 0.5rem 1rem;
+  border: 2px solid white;
 }
 
 .open-door-container:not(:disabled){
@@ -16,26 +17,90 @@
 
 .open-door-container:disabled {
   position: relative;
-  background-image: linear-gradient(
+  background-color: #dc2626;
+  /*background-image: linear-gradient(
     to right,
-    #dc2626 0%,
-    #dc2626 50%,
-    #22c55e 50%
+    #22c55e 0%,
+    #22c55e 50%,
+    #dc2626 50%
   );
   background-size: 200% 100%;
   background-position: 0 100%;
-  animation: progress 4s ease forwards;
+  animation: progress 4s ease forwards;*/
+}
+
+.open-door-container:disabled::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 0.25rem solid #22c55e;
+  border-right: 0.25rem solid #22c55e;
+  border-radius: 2px;
+  animation: border-top-loading 5s ease forwards;
 }
 
 .open-door-container:disabled::after{
   content: "";
-  width: 100%;
-  height: 100%;
-  padding: 2px;
   position: absolute;
-  border: 2px solid transparent;
-  top: -4px;
-  left: -4px;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 0.25rem solid #22c55e;
+  border-left: 0.25rem solid #22c55e;
+  border-radius: 2px;
+  animation: border-bottom-loading 5s ease-in forwards;
+}
+
+@keyframes border-top-loading {
+  0%{
+    width: 0px;
+    height: 0px;
+  }
+  25%{
+    width: 100%;
+    height: 0px;
+  }
+  50%{
+    width: 100%;
+    height: 92%;
+  }
+  100%{
+    width: 100%;
+    height: 92%;
+  }
+}
+
+
+@keyframes border-bottom-loading {
+  0%{
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+  }
+  50%{
+    width: 100%;
+    height: 0px;
+    opacity: 0;
+  }
+  50.1%{
+    width: 100%;
+    height: 0px;
+    opacity: 1;
+  }
+  75%{
+    width: 100%;
+    height: 0px;
+    opacity: 1;
+  }
+  100%{
+    width: 100%;
+    height: 92%;
+    opacity: 1;
+  }
 }
 
 @keyframes pulse {
@@ -49,15 +114,6 @@
 
   100% {
     transform: scale(1);
-  }
-}
-
-@keyframes spin {
-  from{
-    transform: rotate(0deg);
-  }
-  to{
-    transform: rotate(360deg);
   }
 }
 

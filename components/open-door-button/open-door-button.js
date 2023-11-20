@@ -24,7 +24,7 @@ class OpenDoorButton extends HTMLElement {
 
   handleToggleChangeDisabled() {
     if(this.button.disabled){
-        this.button.disabled = false;
+        this.button.disabled = false; 
     }
   }
 }
