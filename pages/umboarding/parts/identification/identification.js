@@ -10,28 +10,32 @@ function scrollToNextIframe(page) {
   window.parent.document.getElementById(page).scrollIntoView();
 }
 
-const targetElement = window.parent.document.getElementById('identification')
+const targetElement = window.parent.document.getElementById("identification");
 
 function executeFunctionWhenElementInViewport(entries, observer) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navigator.mediaDevices
-      .getUserMedia({ video: true })
-      .then(function (stream) {
-        video.srcObject = stream;
-        video.onloadedmetadata = function (e) {
-          video.play();
-        };
-      })
-      .catch(function (err) {
-        console.log(err.name + ": " + err.message);
-      });
-
-    }
-  });
+  setTimeout(function () {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+            video.onloadedmetadata = function (e) {
+              video.play();
+            };
+          })
+          .catch(function (err) {
+            console.log(err.name + ": " + err.message);
+          });
+      }
+    });
+  }, 2000);
 }
 
-const observer = new IntersectionObserver(executeFunctionWhenElementInViewport, { threshold: 0.2 });
+const observer = new IntersectionObserver(
+  executeFunctionWhenElementInViewport,
+  { threshold: 0.2 }
+);
 
 observer.observe(targetElement);
 

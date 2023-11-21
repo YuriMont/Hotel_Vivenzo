@@ -22,7 +22,7 @@ class OpenDoorButton extends HTMLElement {
 
         const interval = setInterval(() => {
           this.button.disabled = true;
-          this.button.innerHTML = `Abertar <br> (${timeRemaining}s)`;
+          this.button.innerHTML = `Aberta <br> (${timeRemaining}s)`;
 
           if (timeRemaining <= 0) {
             clearInterval(interval);

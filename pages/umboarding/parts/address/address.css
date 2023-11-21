@@ -38,7 +38,7 @@
 }
 
 .umboarding-address-container-card-box {
-  width: 80%;
+  width: 90%;
   border-radius: var(--rounded-lg);
   border-top: 0.75rem solid var(--purple-700);
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);

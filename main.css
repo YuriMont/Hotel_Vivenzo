@@ -147,7 +147,11 @@
 
 body {
   background-color: var(--purple-600);
+}
+
+.main-container{
   overflow: hidden;
+  height: 100vh;
 }
 
 iframe{

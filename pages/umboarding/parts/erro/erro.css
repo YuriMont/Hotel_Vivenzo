@@ -2,7 +2,7 @@
 
 .umboarding-error-container {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   padding: 2rem;
   gap: 2rem;
@@ -32,6 +32,7 @@
 
 .umboarding-error-container button {
   border: none;
+  margin-top: 2rem;
   border-radius: var(--rounded-full);
   background-color: var(--purple-400);
   padding: 0.5rem;

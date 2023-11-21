@@ -2,13 +2,13 @@
 
 .umboarding-waiting-container {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   padding: 2rem;
   gap: 2rem;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   text-align: left;
   color: white;
 }
@@ -16,6 +16,10 @@
 .umboarding-waiting-container span {
   display: flex;
   gap: 1rem;
+}
+
+.umboarding-waiting-container h1 {
+  text-align: center;
 }
 
 .umboarding-waiting-container-dot {

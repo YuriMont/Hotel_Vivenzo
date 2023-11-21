@@ -9,27 +9,26 @@
 
 .umboarding-initial-container {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   display: none;
   padding: 2rem;
   gap: 2rem;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   color: white;
-}
-
-.umboarding-initial-container-select-language {
-  position: absolute;
-  top: 1rem;
 }
 
 .umboarding-initial-container h1 {
   text-align: left;
 }
 
+.umboarding-initial-container img{
+  margin-top: 5rem;
+}
+
+
 .umboarding-initial-container-next {
-  margin-top: 2rem;
   border: none;
   border-radius: var(--rounded-xl);
   background-color: var(--purple-400);
