@@ -29,8 +29,7 @@
 }
 
 .umboarding-initial-container-next {
-  position: absolute;
-  bottom: 2rem;
+  margin-top: 2rem;
   border-radius: var(--rounded-xl);
   background-color: var(--purple-400);
   padding: 0.5rem 1rem;

@@ -17,11 +17,20 @@
       <h1>Quase tudo pronto! Seus dados estão corretos?</h1>
 
       <div class="umboarding-review-container-documents">
-        <img src="/pages/umboarding/parts/review/images/identidade.jpg" alt="">
-        <img src="/pages/umboarding/parts/review/images/identidade.jpg" alt="">
-        <img src="/pages/umboarding/parts/review/images/identidade.jpg" alt="">
+        <img
+          src="/pages/umboarding/parts/review/images/identidade.jpg"
+          alt=""
+        />
+        <img
+          src="/pages/umboarding/parts/review/images/identidade.jpg"
+          alt=""
+        />
+        <img
+          src="/pages/umboarding/parts/review/images/identidade.jpg"
+          alt=""
+        />
       </div>
-      
+
       <ul class="umboarding-review-container-box">
         <li>
           <span class="umboarding-review-container-box-description"
@@ -55,9 +64,21 @@
         </li>
       </ul>
       <div class="umboarding-review-container-links">
-        <a href="/pages/umboarding/parts/identification/identification.html" class="umboarding-review-container-link-default">Não</a>
-        <a href="/pages/umboarding/parts/verification/verification.html" class="umboarding-review-container-link-primary">Sim</a>
+        <button
+          onclick="scrollToIframe('identification')"
+          class="umboarding-review-container-link-default"
+          >Não</button>
+        <button
+          onclick="scrollToIframe('verification')"
+          class="umboarding-review-container-link-primary"
+          >Sim</button>
       </div>
     </section>
+
+    <script>
+      function scrollToIframe(page) {
+        window.parent.document.getElementById(page).scrollIntoView();
+      }
+    </script>
   </body>
 </html>

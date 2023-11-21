@@ -156,5 +156,5 @@ function submitCode(index) {
 }
 
 function handleToggleRedirect() {
-  window.location.href = "/pages/umboarding/parts/address/address.html";
+  window.parent.document.getElementById('address').scrollIntoView();
 }

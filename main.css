@@ -147,15 +147,13 @@
 
 body {
   background-color: var(--purple-600);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 iframe{
   width: 100vw;
   height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
+  border: none;
 }
 
 a {

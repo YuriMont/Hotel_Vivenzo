@@ -34,7 +34,7 @@ window.addEventListener("load", () => {
 });
 
 function redirect() {
-  window.location.href = "/pages/umboarding/parts/waiting/waiting.html";
+  window.parent.document.getElementById('waiting').scrollIntoView();
 }
 
 function editVal(input) {

@@ -1,5 +1,9 @@
 @import url("/main.css");
 
+body{
+  overflow-y: auto;
+}
+
 .umboarding-review-container-select-language {
   position: absolute;
   right: 1rem;
@@ -16,7 +20,6 @@
   justify-content: center;
   padding: 2rem 1rem;
   padding-top: 4rem;
-  animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .umboarding-review-container h1 {
@@ -25,8 +28,8 @@
 }
 
 .umboarding-review-container-documents{
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 0.5rem;
   align-items: center;
   justify-content: center;
@@ -99,19 +102,13 @@
   text-transform: uppercase;
 }
 
-@keyframes coming-down {
-  0% {
-    transform: translateY(80%);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-
 @media (min-width: 600px) {
   .umboarding-review-container{
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+
+  .umboarding-review-container-documents{
+    grid-template-columns: 1fr 1fr;
   }
 }

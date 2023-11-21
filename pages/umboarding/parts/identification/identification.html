@@ -10,52 +10,11 @@
     <title>Vinvenzo</title>
   </head>
   <body>
-    <!-- <section id="identidifacation" class="umboarding-identification-container">
-      <language-select
-        class="umboarding-identification-container-select-language"
-      ></language-select>
-      <h2>
-        Documentos aceitos<br />
-        RG / CNH / Passaporte
-      </h2>
-      <label for="imageInput" class="umboarding-identification-container-camera">
-        <img
-          src="/pages/umboarding/parts/identification/images/identification.svg"
-          alt=""
-        />
-        <input id="imageInput" type="file" accept="image/*" />
-        <span>Clique aqui para inserir seu documento!</span>
-      </label>
-
-      <div class="umboarding-identification-container-verification">
-        <img
-          id="imagePreview"
-          src="/pages/umboarding/parts/identification/images/identidade.jpg"
-          alt=""
-        />
-
-        <h2>Este documento está correto?</h2>
-
-        <div class="umboarding-identification-container-verification-controls">
-          <label
-            class="umboarding-identification-container-verification-controls-secondary"
-            for="imageInput"
-            >Não</label
-          >
-          <a href="/pages/umboarding/parts/review/review.html"
-            class="umboarding-identification-container-verification-controls-primary"
-          >
-            Sim
-          </a>
-        </div>
-      </div>
-    </section> -->
-
+    <video
+      id="cameraFeed"
+      class="umboarding-identification-container-content"
+    ></video>
     <section class="umboarding-identification-container">
-      <video
-        id="cameraFeed"
-        class="umboarding-identification-container-content"
-      ></video>
       <div class="umboarding-identification-container-wrapper">
         <h1>Centralize a frente do seu documento</h1>
       </div>
@@ -82,10 +41,6 @@
     </section>
 
     <section id="step-2" class="umboarding-identification-container">
-      <video
-        id="cameraFeed"
-        class="umboarding-identification-container-content"
-      ></video>
       <div class="umboarding-identification-container-wrapper">
         <h1>Centralize o verso do seu documento</h1>
       </div>
@@ -112,10 +67,6 @@
     </section>
 
     <section id="step-3" class="umboarding-identification-container">
-      <video
-        id="cameraFeed"
-        class="umboarding-identification-container-content"
-      ></video>
       <h1>Tire uma selfie</h1>
       <div class="umboarding-identification-container-controls">
         <button>
@@ -124,7 +75,7 @@
             alt=""
           />
         </button>
-        <button onclick="nextPage()">
+        <button onclick="scrollToNextIframe('review')">
           <img
             src="/pages/umboarding/parts/identification/images/selecionado.png"
             alt=""
@@ -138,33 +89,6 @@
         </button>
       </div>
     </section>
-
-    <script>
-      navigator.mediaDevices
-        .getUserMedia({ video: true })
-        .then(function (stream) {
-          document.querySelectorAll("video").forEach((video) => {
-            video.srcObject = stream;
-            video.onloadedmetadata = function (e) {
-              video.play();
-            };
-          });
-        })
-        .catch(function (err) {
-          console.log(err.name + ": " + err.message);
-        });
-
-      const allSection = document.querySelectorAll("section");
-
-      function nextStep(next_step) {
-        allSection.item(next_step - 1).style.display = "none";
-        allSection.item(next_step).style.display = "flex";
-      }
-
-      function nextPage() {
-        window.location.href = "/pages/umboarding/parts/review/review.html";
-      }
-    </script>
 
     <script src="/pages/umboarding/parts/identification/identification.js"></script>
   </body>

@@ -14,7 +14,6 @@
   justify-content: center;
   text-align: center;
   color: white;
-  animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .umboarding-identification-container:nth-of-type(1){
@@ -25,101 +24,6 @@
   position: absolute;
   right: 1rem;
   top: 1rem;
-}
-
-.umboarding-identification-container h2 {
-  font-size: var(--text-lg);
-  font-weight: var(--font-regular);
-}
-
-.umboarding-identification-container-camera {
-  padding: 1rem;
-  background-color: white;
-  border-radius: var(--rounded-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.umboarding-identification-container-camera img {
-  object-fit: contain;
-  height: 240px;
-  width: 100%;
-}
-
-.umboarding-identification-container-camera span {
-  position: relative;
-  top: -1rem;
-  color: var(--gray-500);
-  font-weight: var(--font-semibold);
-}
-
-.umboarding-identification-container-camera input {
-  display: none;
-}
-
-.umboarding-identification-container p {
-  font-size: var(--text-sm);
-  font-weight: var(--font-light);
-}
-
-.umboarding-identification-container-verification {
-  display: none;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-}
-
-.umboarding-identification-container-verification img {
-  margin-bottom: 1rem;
-  height: 200px;
-  width: 300px;
-}
-
-.umboarding-identification-container-verification-controls {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.umboarding-identification-container-verification-controls-primary {
-  border: 1px solid white;
-  border-radius: var(--rounded-xl);
-  background-color: white;
-  color: var(--purple-600);
-  padding: 0.5rem 1rem;
-  font-size: var(--text-xs);
-  font-weight: var(--text-medium);
-  text-transform: uppercase;
-}
-
-.umboarding-identification-container-verification-controls-secondary {
-  border: 1px solid white;
-  border-radius: var(--rounded-xl);
-  color: white;
-  background-color: transparent;
-  padding: 0.5rem 1rem;
-  font-size: var(--text-xs);
-  font-weight: var(--text-medium);
-  text-transform: uppercase;
-}
-
-@keyframes coming-down {
-  0% {
-    transform: translateY(80%);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-@media (min-width: 600px) {
-  .umboarding-identification-container {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
 }
 
 .umboarding-identification-container h1{
@@ -149,6 +53,7 @@
 
 .umboarding-identification-container-wrapper{
   position: relative;
+  top: -2rem;
   border: 2px solid white;
   width: 80vw;
   height: 30vh;
@@ -162,7 +67,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 2rem;
+  bottom: 15vh;
   display: flex;
   gap: 1rem;
   z-index: 2;
@@ -187,4 +92,12 @@
   0% { opacity: 1; }
   50% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+
+@media (min-width: 600px) {
+  .umboarding-identification-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 }

@@ -43,7 +43,7 @@ function hideAddress() {
 }
 
 function nextPage() {
-  window.location.href = "/pages/umboarding/parts/payment/payment.html";
+  window.parent.document.getElementById('payment').scrollIntoView();
 }
 
 window.addEventListener("load", () => {
