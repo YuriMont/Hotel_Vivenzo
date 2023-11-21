@@ -10,19 +10,12 @@ function scrollToNextIframe(page) {
   window.parent.document.getElementById(page).scrollIntoView();
 }
 
-function isElementInViewport(el) {
-  var rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-  );
-}
+const targetElement = window.parent.document.getElementById('identification')
 
-function executeFunctionWhenElementInViewport() {
-  var targetElement = window.parent.document.getElementById('identification')
-
-  if (isElementInViewport(targetElement)) {
-    navigator.mediaDevices
+function executeFunctionWhenElementInViewport(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navigator.mediaDevices
       .getUserMedia({ video: true })
       .then(function (stream) {
         video.srcObject = stream;
@@ -33,10 +26,14 @@ function executeFunctionWhenElementInViewport() {
       .catch(function (err) {
         console.log(err.name + ": " + err.message);
       });
-  }
+
+    }
+  });
 }
 
-window.parent.document.addEventListener("scroll", executeFunctionWhenElementInViewport);
+const observer = new IntersectionObserver(executeFunctionWhenElementInViewport, { threshold: 0.2 });
+
+observer.observe(targetElement);
 
 const allSection = document.querySelectorAll("section");
 

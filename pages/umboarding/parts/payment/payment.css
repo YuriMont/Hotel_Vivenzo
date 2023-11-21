@@ -1,7 +1,7 @@
 @import url("/main.css");
 
 body{
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .umboarding-payment-container-select-language {
@@ -193,6 +193,10 @@ body{
 }
 
 @media (min-width: 600px) {
+  body{
+    overflow-y: auto;
+  }
+
   .umboarding-payment-container{
     padding-left: 4rem;
     padding-right: 4rem;

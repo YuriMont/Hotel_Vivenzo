@@ -45,7 +45,3 @@ function hideAddress() {
 function nextPage() {
   window.parent.document.getElementById('payment').scrollIntoView();
 }
-
-window.addEventListener("load", () => {
-  allInputs.item(0).focusInput();
-});

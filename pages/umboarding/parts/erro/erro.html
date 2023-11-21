@@ -30,36 +30,28 @@
     <script>
       function redirect() {
         setTimeout(function () {
-          window.parent.document.getElementById('success').scrollIntoView();
+          window.parent.document.getElementById("success").scrollIntoView();
         }, 10000); // 10 segundos
       }
+      const targetElement = window.parent.document.getElementById("error");
 
-      function isElementInViewport(el) {
-        var rect = el.getBoundingClientRect();
-        return (
-          rect.top >= 0 &&
-          rect.bottom <=
-            (window.innerHeight || document.documentElement.clientHeight)
-        );
+      function executeFunctionWhenElementInViewport(entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            redirect();
+          }
+        });
       }
 
-      function executeFunctionWhenElementInViewport() {
-        var targetElement = window.parent.document.getElementById("error");
-
-        if (isElementInViewport(targetElement)) {
-          redirect();
-        }
-      }
-
-      window.parent.document.addEventListener(
-        "scroll",
-        executeFunctionWhenElementInViewport
+      const observer = new IntersectionObserver(
+        executeFunctionWhenElementInViewport,
+        { threshold: 0.2 }
       );
 
+      observer.observe(targetElement);
       function scrollToNextIframe(page) {
         window.parent.document.getElementById(page).scrollIntoView();
       }
-
     </script>
   </body>
 </html>

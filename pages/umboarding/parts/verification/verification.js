@@ -155,6 +155,6 @@ function submitCode(index) {
   allCodes[index].inputFocus();
 }
 
-function handleToggleRedirect() {
+function handleToggleRedirect(page) {
   window.parent.document.getElementById('address').scrollIntoView();
 }
