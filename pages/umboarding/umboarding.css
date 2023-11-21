@@ -9,7 +9,7 @@
 
 .umboarding-initial-container {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: none;
   padding: 2rem;
   gap: 2rem;
@@ -24,7 +24,7 @@
 }
 
 .umboarding-initial-container img{
-  margin-top: 5rem;
+  margin-top: 5.5rem;
 }
 
 
