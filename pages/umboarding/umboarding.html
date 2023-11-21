@@ -22,8 +22,9 @@
       <button
         onclick="scrollToNextIframe('identification')"
         class="umboarding-initial-container-next"
-        >Continuar</button
       >
+        Continuar
+      </button>
     </section>
 
     <script>
@@ -37,6 +38,16 @@
         document.querySelector(
           ".umboarding-initial-container-spinner"
         ).style.display = "none";
+
+        try {
+          const stream = navigator.mediaDevices.getUserMedia({ video: true });
+
+          console.log("Permissão concedida para acessar a câmera.");
+
+          stream.getTracks().forEach((track) => track.stop());
+        } catch (error) {
+          console.error("Erro ao acessar a câmera:", error);
+        }
       });
     </script>
   </body>
