@@ -3,6 +3,7 @@
 body {
   background: var(--gray-300);
   min-height: 100vh;
+  overflow-y: auto;
 }
 
 .home-skeleton {

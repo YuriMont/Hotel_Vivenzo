@@ -1,5 +1,9 @@
 @import url("/main.css");
 
+body{
+  overflow-y: auto;
+}
+
 .umboarding-payment-container-select-language {
   position: absolute;
   right: 2rem;
