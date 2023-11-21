@@ -80,6 +80,11 @@
 
     <script>
       function scrollToIframe(page) {
+        document.querySelector(".umboarding-review-container").style.display =
+          "none";
+        document.querySelector(
+          ".umboarding-review-container-spinner"
+        ).style.display = "block";
         window.parent.document.getElementById(page).scrollIntoView();
       }
 

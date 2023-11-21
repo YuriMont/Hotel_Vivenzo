@@ -6,7 +6,7 @@ body{
 
 .umboarding-review-container-spinner{
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translateX(-50%);
 }
