@@ -2,7 +2,7 @@
 
 .umboarding-error-container {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   padding: 2rem;
   gap: 2rem;
