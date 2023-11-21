@@ -1,20 +1,42 @@
 const video = document.getElementById("cameraFeed");
 
 function scrollToNextIframe(page) {
+  const stream = video.srcObject;
+  const tracks = stream.getTracks();
+
+  tracks.forEach((track) => track.stop());
+
+  video.srcObject = null;
   window.parent.document.getElementById(page).scrollIntoView();
 }
 
-navigator.mediaDevices
-  .getUserMedia({ video: true })
-  .then(function (stream) {
-    video.srcObject = stream;
-    video.onloadedmetadata = function (e) {
-      video.play();
-    };
-  })
-  .catch(function (err) {
-    console.log(err.name + ": " + err.message);
-  });
+function isElementInViewport(el) {
+  var rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+  );
+}
+
+function executeFunctionWhenElementInViewport() {
+  var targetElement = window.parent.document.getElementById('identification')
+
+  if (isElementInViewport(targetElement)) {
+    navigator.mediaDevices
+      .getUserMedia({ video: true })
+      .then(function (stream) {
+        video.srcObject = stream;
+        video.onloadedmetadata = function (e) {
+          video.play();
+        };
+      })
+      .catch(function (err) {
+        console.log(err.name + ": " + err.message);
+      });
+  }
+}
+
+window.parent.document.addEventListener("scroll", executeFunctionWhenElementInViewport);
 
 const allSection = document.querySelectorAll("section");
 

@@ -30,6 +30,7 @@
 
 .umboarding-initial-container-next {
   margin-top: 2rem;
+  border: none;
   border-radius: var(--rounded-xl);
   background-color: var(--purple-400);
   padding: 0.5rem 1rem;

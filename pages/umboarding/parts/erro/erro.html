@@ -23,18 +23,43 @@
         <div class="umboarding-error-container-dot"></div>
       </span>
 
-      <a href="/pages/umboarding/parts/payment/payment.html">
+      <button onclick="scrollToNextIframe('payment')">
         <img src="/pages/umboarding/parts/erro/images/left.svg" alt="" />
-      </a>
+      </button>
     </section>
     <script>
       function redirect() {
         setTimeout(function () {
-          window.location.href = "/pages/umboarding/parts/success/success.html";
+          window.parent.document.getElementById('success').scrollIntoView();
         }, 10000); // 10 segundos
       }
 
-      window.onload = redirect;
+      function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight)
+        );
+      }
+
+      function executeFunctionWhenElementInViewport() {
+        var targetElement = window.parent.document.getElementById("error");
+
+        if (isElementInViewport(targetElement)) {
+          redirect();
+        }
+      }
+
+      window.parent.document.addEventListener(
+        "scroll",
+        executeFunctionWhenElementInViewport
+      );
+
+      function scrollToNextIframe(page) {
+        window.parent.document.getElementById(page).scrollIntoView();
+      }
+
     </script>
   </body>
 </html>

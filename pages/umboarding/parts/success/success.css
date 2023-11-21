@@ -11,7 +11,6 @@
   justify-content: center;
   text-align: left;
   color: white;
-  animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .umboarding-success-container p {
@@ -32,6 +31,7 @@
 }
 
 .umboarding-success-container a {
+  border: none;
   border-radius: var(--rounded-full);
   background-color: var(--purple-400);
   padding: 0.5rem;
@@ -55,15 +55,6 @@
 
   100% {
     transform: scale(1);
-  }
-}
-
-@keyframes coming-down {
-  0% {
-    transform: translateY(80%);
-  }
-  100% {
-    transform: translateY(0px);
   }
 }
 

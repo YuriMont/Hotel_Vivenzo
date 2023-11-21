@@ -40,7 +40,7 @@
   border-top: 0.25rem solid #22c55e;
   border-right: 0.25rem solid #22c55e;
   border-radius: 2px;
-  animation: border-top-loading 5s ease forwards;
+  animation: border-top-loading 5s normal forwards;
 }
 
 .open-door-container:disabled::after{
@@ -53,29 +53,25 @@
   border-bottom: 0.25rem solid #22c55e;
   border-left: 0.25rem solid #22c55e;
   border-radius: 2px;
-  animation: border-bottom-loading 5s ease-out forwards;
+  animation: border-bottom-loading 5s normal forwards;
 }
 
 @keyframes border-top-loading {
   0%{
     width: 0px;
     height: 0px;
-    animation-timing-function: ease;
   }
   25%{
     width: 100%;
     height: 0px;
-    animation-timing-function: ease;
   }
   50%{
     width: 100%;
     height: 92%;
-    animation-timing-function: ease;
   }
   100%{
     width: 100%;
     height: 92%;
-    animation-timing-function: ease;
   }
 }
 
@@ -83,32 +79,27 @@
 @keyframes border-bottom-loading {
   0%{
     width: 0px;
-    animation-timing-function: ease;
     height: 0px;
     opacity: 0;
   }
   50%{
     width: 100%;
     height: 0px;
-    animation-timing-function: ease;
     opacity: 0;
   }
   50.1%{
     width: 100%;
     height: 0px;
-    animation-timing-function: ease;
     opacity: 1;
   }
   75%{
     width: 100%;
     height: 0px;
-    animation-timing-function: ease;
     opacity: 1;
   }
   100%{
     width: 100%;
     height: 92%;
-    animation-timing-function: ease;
     opacity: 1;
   }
 }
