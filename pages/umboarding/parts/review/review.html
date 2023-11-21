@@ -8,6 +8,9 @@
   </head>
   <body>
     <script src="/components/language-select/language-select.js"></script>
+    <script src="/components/spin/spin-loader.js"></script>
+
+    <spin-loader class="umboarding-review-container-spinner"></spin-loader>
 
     <section class="umboarding-review-container">
       <language-select
@@ -17,10 +20,6 @@
       <h1>Quase tudo pronto! Seus dados estão corretos?</h1>
 
       <div class="umboarding-review-container-documents">
-        <img
-          src="/pages/umboarding/parts/review/images/identidade.jpg"
-          alt=""
-        />
         <img
           src="/pages/umboarding/parts/review/images/identidade.jpg"
           alt=""
@@ -67,11 +66,15 @@
         <button
           onclick="scrollToIframe('identification')"
           class="umboarding-review-container-link-default"
-          >Não</button>
+        >
+          Não
+        </button>
         <button
           onclick="scrollToIframe('verification')"
           class="umboarding-review-container-link-primary"
-          >Sim</button>
+        >
+          Sim
+        </button>
       </div>
     </section>
 
@@ -79,6 +82,30 @@
       function scrollToIframe(page) {
         window.parent.document.getElementById(page).scrollIntoView();
       }
+
+      const targetElement = window.parent.document.getElementById("review");
+
+      function executeFunctionWhenElementInViewport(entries, observer) {
+        setTimeout(function () {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              document.querySelector(
+                ".umboarding-review-container"
+              ).style.display = "flex";
+              document.querySelector(
+                ".umboarding-review-container-spinner"
+              ).style.display = "none";
+            }
+          });
+        }, 5000);
+      }
+
+      const observer = new IntersectionObserver(
+        executeFunctionWhenElementInViewport,
+        { threshold: 0.2 }
+      );
+
+      observer.observe(targetElement);
     </script>
   </body>
 </html>

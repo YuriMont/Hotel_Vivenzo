@@ -4,6 +4,13 @@ body{
   overflow-y: auto;
 }
 
+.umboarding-review-container-spinner{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .umboarding-review-container-select-language {
   position: absolute;
   right: 1rem;
@@ -13,13 +20,14 @@ body{
 .umboarding-review-container {
   width: 100vw;
   height: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 2.5rem;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 2rem;
   padding-top: 4rem;
+  animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .umboarding-review-container h1 {
@@ -29,15 +37,16 @@ body{
 
 .umboarding-review-container-documents{
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
   align-items: center;
   justify-content: center;
 }
 
 .umboarding-review-container-documents img{
-  width: 300px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 14/9;
 }
 
 .umboarding-review-container ul li {
@@ -45,7 +54,7 @@ body{
 }
 
 .umboarding-review-container-box {
-  width: 90%;
+  width: 100%;
   border-radius: var(--rounded-lg);
   border-top: 0.75rem solid var(--purple-700);
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -102,13 +111,18 @@ body{
   text-transform: uppercase;
 }
 
+@keyframes coming-down {
+  0% {
+    transform: translateY(80%);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 @media (min-width: 600px) {
   .umboarding-review-container{
     padding-left: 4rem;
     padding-right: 4rem;
-  }
-
-  .umboarding-review-container-documents{
-    grid-template-columns: 1fr 1fr;
   }
 }

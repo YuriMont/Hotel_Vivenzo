@@ -147,6 +147,7 @@
 
 body {
   background-color: var(--purple-600);
+  overflow-x: hidden;
 }
 
 .main-container{
