@@ -78,6 +78,14 @@
   color: var(--gray-600);
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
+  -webkit-apple-system: none;
+}
+
+.umboarding-address-container-card-box-data a{
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  -webkit-apple-system: none;
 }
 
 .umboarding-address-container-buttons {

@@ -36,9 +36,14 @@ body {
   padding: 1rem;
 }
 
+
 .home-container-box summary {
   list-style: none;
   cursor: pointer;
+}
+
+.home-container-box summary::-webkit-details-marker {
+  display: none;
 }
 
 

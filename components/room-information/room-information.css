@@ -47,7 +47,10 @@
   font-size: var(--text-sm);
   font-weight: var(--font-light);
   background-color: transparent;
-  width: 100%;
+  appearance: textfield;
+  -webkit-appearance: textfield;
+  color: initial;
+  width: calc(100% -1em);
 }
 
 .room-information-container-inputs-date-calendar-icon {

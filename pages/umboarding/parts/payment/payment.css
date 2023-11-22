@@ -132,9 +132,11 @@ body{
   background: none;
   outline: none;
   width: 100%;
+  border-radius: 0;
   border-bottom: var(--purple-700) 2px solid;
+  appearance: none;
+  -webkit-appearance: none;
 }
-
 
 .umboarding-payment-container-credicard-input-field-text-input-required {
   color: red;

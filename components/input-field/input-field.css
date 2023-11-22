@@ -19,8 +19,13 @@
   border: none;
   background: none;
   outline: none;
+  border-radius: 0;
   border-bottom: var(--purple-700) 2px solid;
+  text-align: left;
+  appearance: none;
+  -webkit-appearance: none;
 }
+
 .input-field-container-text label {
   position: absolute;
   top: 50%;

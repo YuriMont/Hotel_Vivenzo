@@ -15,7 +15,10 @@
       defer
       src="/components/room-information/room-information.js"
     ></script>
-    <script defer src="/components/open-door-button/open-door-button.js"></script>
+    <script
+      defer
+      src="/components/open-door-button/open-door-button.js"
+    ></script>
     <script defer src="/components/popup/modal-popup.js"></script>
     <script
       defer
@@ -286,8 +289,16 @@
       document.querySelectorAll("details").forEach((element) => {
         element.addEventListener("toggle", function () {
           if (element.open) {
+            const rect = element.getBoundingClientRect();
+            const offsetTop = rect.top + window.scrollY;
+
+            // Verificar se o offsetTop ultrapassa o limite superior do documento
+            const maxScrollTop =
+              document.documentElement.scrollHeight - window.innerHeight;
+            const scrollToTop = Math.min(offsetTop, maxScrollTop);
+
             window.scrollTo({
-              top: document.body.scrollHeight,
+              top: scrollToTop,
               behavior: "smooth",
             });
           }

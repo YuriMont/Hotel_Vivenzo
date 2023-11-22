@@ -12,10 +12,12 @@ allInputs.forEach(function (input) {
   });
 
   input.addEventListener("click", () => {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth",
-    });
+    if (navigator.userAgent.indexOf("Safari") == -1 && navigator.userAgent.indexOf("Chrome")) {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+    }
   });
 });
 
@@ -34,7 +36,7 @@ window.addEventListener("load", () => {
 });
 
 function redirect() {
-  window.parent.document.getElementById('waiting').scrollIntoView();
+  window.parent.document.getElementById("waiting").scrollIntoView();
 }
 
 function editVal(input) {
@@ -57,5 +59,5 @@ function editCard(input) {
   // Adiciona espaços a cada 4 dígitos
   card = card.replace(/(\d{4})(?=\d)/g, "$1 ");
 
-  input.value = card;
+  input.value = card.trim()
 }
