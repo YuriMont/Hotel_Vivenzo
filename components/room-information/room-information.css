@@ -50,7 +50,14 @@
   appearance: textfield;
   -webkit-appearance: textfield;
   color: initial;
+  width: 100%;
   width: calc(100% -1em);
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+  .room-information-container-inputs-date input[type="date"] {
+    width: calc(100% -1em);
+  }
 }
 
 .room-information-container-inputs-date-calendar-icon {
