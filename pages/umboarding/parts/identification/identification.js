@@ -1,5 +1,7 @@
 const video = document.getElementById("cameraFeed");
 
+const isNotSafari = !(/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor))
+
 function scrollToNextIframe(page) {
   const stream = video.srcObject;
 
@@ -9,7 +11,6 @@ function scrollToNextIframe(page) {
 
     video.srcObject = null;
   }
-
   window.parent.document.getElementById(page).scrollIntoView();
 }
 
@@ -19,8 +20,7 @@ function executeFunctionWhenElementInViewport(entries, observer) {
   setTimeout(function () {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        window.parent.document.getElementById("umboarding").style.display =
-          "none";
+        isNotSafari ? window.parent.document.getElementById("umboarding").style.display = "none" : null;
         navigator.mediaDevices
           .getUserMedia({ video: true })
           .then(function (stream) {

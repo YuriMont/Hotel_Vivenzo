@@ -79,6 +79,8 @@
     </section>
 
     <script>
+      const isNotSafari = !(/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor));
+
       function scrollToIframe(page) {
         document.querySelector(".umboarding-review-container").style.display =
           "none";
@@ -94,7 +96,7 @@
         setTimeout(function () {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              window.parent.document.getElementById("identification").style.display = 'none'
+              isNotSafari ? window.parent.document.getElementById("identification").style.display = 'none' : null;
               document.querySelector(
                 ".umboarding-review-container"
               ).style.display = "flex";

@@ -27,6 +27,8 @@ const resendCodeButtons = document.querySelectorAll(
   ".umboarding-reservation-container-submit-code-resend"
 );
 
+const isNotSafari = !(/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor));
+
 window.addEventListener("load", () => {
   allInputs.forEach((item, index) => {
     item.setValueInput(userInformation[index].data);
@@ -95,7 +97,7 @@ function enableControls() {
 }
 
 function disableControls(index) {
-  window.parent.document.getElementById("review").style.display = "none";
+  isNotSafari ? window.parent.document.getElementById("review").style.display = "none" : null;
   document.querySelector('.umboarding-verification-container').style.translate = '0 -20%';
   allBoxSpans.forEach((element, i) => {
     if (index == i) {

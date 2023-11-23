@@ -1,5 +1,7 @@
 const allInputs = document.querySelectorAll("input-field");
 
+const isNotSafari = !(/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor));
+
 function nextInput(event, index) {
   if (event.key === "Enter") {
     if (index + 1 != allInputs.length) {
@@ -11,9 +13,11 @@ function nextInput(event, index) {
 }
 
 document.querySelector('.umboarding-address-container-card-box').addEventListener('focusin', () => {
-  window.parent.document.getElementById("verification").style.display = 'none';
-
-  document.querySelector('.umboarding-address-container').style.transform = 'translateY(-20%)'
+  if(isNotSafari){
+    window.parent.document.getElementById("verification").style.display = 'none';
+  
+    document.querySelector('.umboarding-address-container').style.transform = 'translateY(-20%)'
+  }
 });
 
 document.querySelector('.umboarding-address-container-card-box').addEventListener('focusout', () => {

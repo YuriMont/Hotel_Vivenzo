@@ -2,6 +2,8 @@ const allInputs = document.querySelectorAll(
   ".umboarding-payment-container-credicard-input-field-text input"
 );
 
+const isNotSafari = !(/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor));
+
 allInputs.forEach(function (input) {
   input.addEventListener("input", function () {
     var hasFieldNone = Array.from(allInputs).every(function (input) {
@@ -12,8 +14,10 @@ allInputs.forEach(function (input) {
   });
 
   input.addEventListener("focus", () => {
-    window.parent.document.getElementById("address").style.display = 'none'
-    document.querySelector('.umboarding-payment-container').style.transform = 'translateY(-50%)';
+    if(isNotSafari){
+      window.parent.document.getElementById("address").style.display = 'none'
+      document.querySelector('.umboarding-payment-container').style.transform = 'translateY(-50%)';
+    }
   });
 
   input.addEventListener("blur", () => {
