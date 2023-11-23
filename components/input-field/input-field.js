@@ -35,6 +35,7 @@ class InputField extends HTMLElement {
     document.addEventListener("DOMContentLoaded", () => {
       this.btn.addEventListener("click", this.togglePopover.bind(this));
       this.inputField.addEventListener("input", this.verifyModification.bind(this));
+      this.inputField.addEventListener("focus", this.moveToTop.bind(this));
     });
   }
 
@@ -42,6 +43,20 @@ class InputField extends HTMLElement {
     this.popoverContent.style.display = this.isPopoverVisible ? "none" : "flex";
     this.popoverContent.innerText = "teste";
     this.isPopoverVisible = !this.isPopoverVisible;
+  }
+
+  moveToTop(){
+    const rect = this.inputField.getBoundingClientRect();
+    const offsetTop = rect.top + window.scrollY;
+
+    const maxScrollTop =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const scrollToTop = Math.min(offsetTop, maxScrollTop);
+
+    window.scrollTo({
+      top: scrollToTop,
+      behavior: "smooth",
+    });
   }
 
   focusInput() {

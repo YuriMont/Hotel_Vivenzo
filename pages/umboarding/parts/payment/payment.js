@@ -11,13 +11,18 @@ allInputs.forEach(function (input) {
     document.getElementById("confirmation-button").disabled = !hasFieldNone;
   });
 
-  input.addEventListener("click", () => {
-    if (navigator.userAgent.indexOf("Safari") == -1 && navigator.userAgent.indexOf("Chrome")) {
-      window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth",
-      });
-    }
+  input.addEventListener("focus", () => {
+    const rect = input.getBoundingClientRect();
+    const offsetTop = rect.top + window.scrollY;
+
+    const maxScrollTop =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const scrollToTop = Math.min(offsetTop, maxScrollTop);
+
+    window.scrollTo({
+      top: scrollToTop,
+      behavior: "smooth",
+    });
   });
 });
 
@@ -59,5 +64,5 @@ function editCard(input) {
   // Adiciona espaços a cada 4 dígitos
   card = card.replace(/(\d{4})(?=\d)/g, "$1 ");
 
-  input.value = card.trim()
+  input.value = card.trim();
 }

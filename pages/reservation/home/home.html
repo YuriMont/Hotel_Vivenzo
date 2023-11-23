@@ -292,7 +292,6 @@
             const rect = element.getBoundingClientRect();
             const offsetTop = rect.top + window.scrollY;
 
-            // Verificar se o offsetTop ultrapassa o limite superior do documento
             const maxScrollTop =
               document.documentElement.scrollHeight - window.innerHeight;
             const scrollToTop = Math.min(offsetTop, maxScrollTop);
