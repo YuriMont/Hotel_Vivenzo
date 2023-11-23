@@ -12,17 +12,12 @@ allInputs.forEach(function (input) {
   });
 
   input.addEventListener("focus", () => {
-    const rect = input.getBoundingClientRect();
-    const offsetTop = rect.top + window.scrollY;
+    window.parent.document.getElementById("address").style.display = 'none'
+    document.querySelector('.umboarding-payment-container').style.transform = 'translateY(-50%)';
+  });
 
-    const maxScrollTop =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const scrollToTop = Math.min(offsetTop, maxScrollTop);
-
-    window.scrollTo({
-      top: scrollToTop,
-      behavior: "smooth",
-    });
+  input.addEventListener("blur", () => {
+    document.querySelector('.umboarding-payment-container').style.transform = 'translateY(0)';
   });
 });
 

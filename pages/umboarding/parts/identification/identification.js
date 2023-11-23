@@ -2,11 +2,14 @@ const video = document.getElementById("cameraFeed");
 
 function scrollToNextIframe(page) {
   const stream = video.srcObject;
-  const tracks = stream.getTracks();
 
-  tracks.forEach((track) => track.stop());
+  if (stream) {
+    const tracks = stream.getTracks();
+    tracks.forEach((track) => track.stop());
 
-  video.srcObject = null;
+    video.srcObject = null;
+  }
+
   window.parent.document.getElementById(page).scrollIntoView();
 }
 
@@ -16,6 +19,8 @@ function executeFunctionWhenElementInViewport(entries, observer) {
   setTimeout(function () {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        window.parent.document.getElementById("umboarding").style.display =
+          "none";
         navigator.mediaDevices
           .getUserMedia({ video: true })
           .then(function (stream) {

@@ -10,6 +10,16 @@ function nextInput(event, index) {
   }
 }
 
+document.querySelector('.umboarding-address-container-card-box').addEventListener('focusin', () => {
+  window.parent.document.getElementById("verification").style.display = 'none';
+
+  document.querySelector('.umboarding-address-container').style.transform = 'translateY(-20%)'
+});
+
+document.querySelector('.umboarding-address-container-card-box').addEventListener('focusout', () => {
+  document.querySelector('.umboarding-address-container').style.transform = 'translateY(0)'
+});
+
 function hasRequiredFieldNone() {
   let control = false;
   allInputs.forEach((item) => {

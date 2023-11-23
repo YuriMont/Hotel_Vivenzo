@@ -19,14 +19,18 @@ const allBoxSpans = document.querySelectorAll(
   ".umboarding-verification-container-box span"
 );
 
-const submitCodeButtons = document.querySelectorAll('.umboarding-reservation-container-submit-code-button')
+const submitCodeButtons = document.querySelectorAll(
+  ".umboarding-reservation-container-submit-code-button"
+);
 
-const resendCodeButtons = document.querySelectorAll(".umboarding-reservation-container-submit-code-resend");
+const resendCodeButtons = document.querySelectorAll(
+  ".umboarding-reservation-container-submit-code-resend"
+);
 
 window.addEventListener("load", () => {
   allInputs.forEach((item, index) => {
     item.setValueInput(userInformation[index].data);
-    item.setIsDisabledInput(true)
+    item.setIsDisabledInput(true);
   });
   enableControls();
   validationButton();
@@ -44,7 +48,9 @@ function stopCountdown(index) {
 }
 
 function updateCountdown(seconds, index) {
-  resendCodeButtons.item(index).innerHTML = `Não recebeu? <br> Reenviar código (${seconds}s)`;
+  resendCodeButtons.item(
+    index
+  ).innerHTML = `Não recebeu? <br> Reenviar código (${seconds}s)`;
   if (seconds > 0) {
     resendCodeButtons.item(index).disabled = true;
     resendCodeButtons.item(index).disabled = true;
@@ -64,15 +70,18 @@ function validationButton() {
     : "block";
 }
 
+
 function enableControls() {
+  document.querySelector('.umboarding-verification-container').style.translate = '0 0';
   allBoxSpans.forEach((element, i) => {
     element.style.display = "block";
     element.innerHTML = "Trocar";
-    allInputs.item(i).setValueInput(userInformation[i].data)
-    stopCountdown(i)
+
+    allInputs.item(i).setValueInput(userInformation[i].data);
+    stopCountdown(i);
     //botão desabilitado
     element.addEventListener("click", () => disableControls(i));
-    allInputs.item(i).setIsDisabledInput(true)
+    allInputs.item(i).setIsDisabledInput(true);
     allCodes.item(i).style.display = "none";
   });
 
@@ -86,16 +95,20 @@ function enableControls() {
 }
 
 function disableControls(index) {
+  window.parent.document.getElementById("review").style.display = "none";
+  document.querySelector('.umboarding-verification-container').style.translate = '0 -20%';
   allBoxSpans.forEach((element, i) => {
     if (index == i) {
       element.innerHTML = "Cancelar";
       allInputs.item(i).setIsDisabledInput(false);
       allInputs.item(i).focusInput();
-      submitCodeButtons.item(i).style.display="block";
+      submitCodeButtons.item(i).style.display = "block";
       submitCodeButtons.item(i).disabled = true;
       resendCodeButtons.item(i).style.display = "none";
       element.addEventListener("click", () => enableControls());
-      document.getElementById("umboarding-container-confirmation-button").style.display = "none";
+      document.getElementById(
+        "umboarding-container-confirmation-button"
+      ).style.display = "none";
     } else {
       element.style.display = "none";
     }
@@ -110,7 +123,7 @@ function disableControls(index) {
 
 allInputs.forEach((item, index) => {
   item.addEventListener("verifyText", (event) => {
-    submitCodeButtons.item(index).disabled = !event.detail
+    submitCodeButtons.item(index).disabled = !event.detail;
   });
 });
 
@@ -143,8 +156,8 @@ allCodes.forEach((item, index) => {
 function submitCode(index) {
   stopCountdown(index);
   allCodes.item(index).resetCode();
-  allInputs.item(index).setIsDisabledInput(true)
-  allInputs.item(index).setValueInput(allInputs.item(index).getValueInput())
+  allInputs.item(index).setIsDisabledInput(true);
+  allInputs.item(index).setValueInput(allInputs.item(index).getValueInput());
   resendCodeButtons.item(index).style.display = "block";
   submitCodeButtons.item(index).disabled = true;
   updateCountdown(20, index);
@@ -155,6 +168,15 @@ function submitCode(index) {
   allCodes[index].inputFocus();
 }
 
-function handleToggleRedirect(page) {
-  window.parent.document.getElementById('address').scrollIntoView();
+document
+  .querySelector(".umboarding-verification-container")
+  .addEventListener("focusout", () => {
+    document.querySelector(
+      ".umboarding-verification-container"
+    ).style.transform = "translateY(0)";
+  });
+
+function handleToggleRedirect() {
+  window.parent.document.getElementById("review").style.display = "none";
+  window.parent.document.getElementById("address").scrollIntoView();
 }

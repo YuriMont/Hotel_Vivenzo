@@ -46,17 +46,17 @@ class InputField extends HTMLElement {
   }
 
   moveToTop(){
-    const rect = this.inputField.getBoundingClientRect();
-    const offsetTop = rect.top + window.scrollY;
+    // const rect = this.inputField.getBoundingClientRect();
+    // const offsetTop = rect.top + window.scrollY;
 
-    const maxScrollTop =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const scrollToTop = Math.min(offsetTop, maxScrollTop);
+    // const maxScrollTop =
+    //   document.documentElement.scrollHeight - window.innerHeight;
+    // const scrollToTop = Math.min(offsetTop, maxScrollTop);
 
-    window.scrollTo({
-      top: scrollToTop,
-      behavior: "smooth",
-    });
+    // window.scrollTo({
+    //   top: scrollToTop,
+    //   behavior: "smooth",
+    // });
   }
 
   focusInput() {

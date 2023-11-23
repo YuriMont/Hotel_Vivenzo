@@ -94,6 +94,7 @@
         setTimeout(function () {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
+              window.parent.document.getElementById("identification").style.display = 'none'
               document.querySelector(
                 ".umboarding-review-container"
               ).style.display = "flex";
