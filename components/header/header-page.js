@@ -2,14 +2,14 @@ const templateHeaderPage = document.createElement("template");
 templateHeaderPage.innerHTML = `
 <link rel="stylesheet" href="/components/header/header-page.css" />
 
-<header class="header-page-container">
+<div class="header-page-container">
     <button id="back">
        <img src="/components/header/icons/back.svg" alt="back">
     </button>
     <h1 id="title-header">Hotel Vivenzo</h1>
 
     <language-select></language-select>
-</header>
+</div>
 `;
 
 
@@ -43,10 +43,10 @@ class HeaderPage extends HTMLElement {
 
     set typeHeader(type){
       if(type=='primary'){
-        this.shadowRoot.querySelector('header').classList.add('header-page-container-primary');
+        this.shadowRoot.querySelector('.header-page-container').classList.add('header-page-container-primary');
       }
       else{
-        this.shadowRoot.querySelector('header').classList.add('header-page-container-default');
+        this.shadowRoot.querySelector('.header-page-container').classList.add('header-page-container-default');
       }
     }
 

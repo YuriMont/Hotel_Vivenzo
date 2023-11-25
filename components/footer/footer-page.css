@@ -10,7 +10,7 @@
     justify-content: center;
     height: 10vh;
     width: 100vw;
-    top: 90vh;
+    bottom: 0;
 }
 
 .footer-page-nav{
