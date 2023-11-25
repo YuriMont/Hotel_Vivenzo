@@ -200,12 +200,14 @@
       function executeFunctionWhenElementInViewport(entries, observer) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            
             nextPage.contentWindow.location.reload();
-
+            document.querySelector('footer-page').style.display = 'block';
             setTimeout(function () {
               allReservationSkeleton.forEach((item) => {
                 item.classList.remove("reservation-skeleton");
               });
+              
             }, 3000);
           }
         });

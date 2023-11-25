@@ -40,7 +40,7 @@ class FooterPage extends HTMLElement {
 
     document.addEventListener("DOMContentLoaded", () => {
       if (this.isChromeOrFirefox()) {
-        this.shadowRoot.querySelector(".footer-page").style.bottom = "6vh";
+        //this.shadowRoot.querySelector(".footer-page").style.bottom = "6vh";
       }
 
       window.addEventListener("scroll", () => {
@@ -49,6 +49,10 @@ class FooterPage extends HTMLElement {
         }
       });
     });
+  }
+
+  hasMoreScrollUp(){
+    return window.pageYOffset >= 0;
   }
 
   isChromeOrFirefox() {

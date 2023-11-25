@@ -145,7 +145,6 @@
   -webkit-user-select: none; /* Chrome, Safari, and Opera */
 }
 
-
 body {
   background-color: var(--purple-600);
   overflow-x: hidden;
