@@ -1,7 +1,7 @@
 @import url('/main.css');
 
 .footer-page{
-    position: sticky;
+    position: fixed;
     z-index: 1000;
     background-color: var(--purple-700);
     border-top: 2px solid var(--gray-300);
