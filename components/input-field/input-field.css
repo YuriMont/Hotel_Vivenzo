@@ -60,16 +60,16 @@
 }
 
 .input-field-container-popover-content {
-  /*Transformar em block*/
   display: none;
   background-color: var(--gray-300);
   position: absolute;
   top: -3rem;
   left: 50%;
   transform: translateX(-50%);
+  border-radius: var(--rounded-sm);
   padding: 0.5rem;
   font-weight: var(--font-light);
-  font-size: var(--text-xl);
+  font-size: var(--text-sm);
   text-align: center;
   color: red;
 }

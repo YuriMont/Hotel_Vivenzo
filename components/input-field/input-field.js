@@ -9,9 +9,9 @@ templateInputField.innerHTML = `
       <div class="input-field-container-popover">
         <div class="input-field-container-popover-content" id="content-popover">
         </div>
-        <button class="input-field-container-popover-trigger" id="popover">
+        <div class="input-field-container-popover-trigger" id="popover">
           <img src="/pages/umboarding/images/info.svg" alt="" />
-        </button>
+        </div>
       </div>
     </div>
 `;
@@ -26,7 +26,6 @@ class InputField extends HTMLElement {
 
     this.inputField = this.shadowRoot.getElementById("input-field");
     this.btn = this.shadowRoot.getElementById("popover");
-    this.popoverContent = this.shadowRoot.getElementById("content-popover");
     this.labelText = this.shadowRoot.getElementById("label-text");
     this.isPopoverVisible = false;
     this._isRequired = false;
@@ -35,28 +34,12 @@ class InputField extends HTMLElement {
     document.addEventListener("DOMContentLoaded", () => {
       this.btn.addEventListener("click", this.togglePopover.bind(this));
       this.inputField.addEventListener("input", this.verifyModification.bind(this));
-      this.inputField.addEventListener("focus", this.moveToTop.bind(this));
     });
   }
 
   togglePopover() {
-    this.popoverContent.style.display = this.isPopoverVisible ? "none" : "flex";
-    this.popoverContent.innerText = "teste";
+    this.shadowRoot.getElementById('content-popover').style.display = this.isPopoverVisible ? "none" : "flex";
     this.isPopoverVisible = !this.isPopoverVisible;
-  }
-
-  moveToTop(){
-    // const rect = this.inputField.getBoundingClientRect();
-    // const offsetTop = rect.top + window.scrollY;
-
-    // const maxScrollTop =
-    //   document.documentElement.scrollHeight - window.innerHeight;
-    // const scrollToTop = Math.min(offsetTop, maxScrollTop);
-
-    // window.scrollTo({
-    //   top: scrollToTop,
-    //   behavior: "smooth",
-    // });
   }
 
   focusInput() {

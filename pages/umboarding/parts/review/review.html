@@ -64,13 +64,13 @@
       </ul>
       <div class="umboarding-review-container-links">
         <button
-          onclick="scrollToIframe('identification')"
+          onclick="scrollToPreviousIframe()"
           class="umboarding-review-container-link-default"
         >
           Não
         </button>
         <button
-          onclick="scrollToIframe('verification')"
+          onclick="scrollToNextIframe()"
           class="umboarding-review-container-link-primary"
         >
           Sim
@@ -80,23 +80,28 @@
 
     <script>
       const isNotSafari = !(/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor));
+      const targetElement = window.parent.document.getElementById("review");
 
-      function scrollToIframe(page) {
-        document.querySelector(".umboarding-review-container").style.display =
-          "none";
-        document.querySelector(
-          ".umboarding-review-container-spinner"
-        ).style.display = "block";
-        window.parent.document.getElementById(page).scrollIntoView();
+      function scrollToPreviousIframe() {
+        const previousIframe = window.parent.document.getElementById('identification');
+
+        previousIframe.contentWindow.location.reload();
+
+        targetElement.contentWindow.location.reload()
+
+        previousIframe.scrollIntoView();
       }
 
-      const targetElement = window.parent.document.getElementById("review");
+      function scrollToNextIframe() {
+        isNotSafari ? window.parent.document.getElementById("identification").style.display = 'none' : null;
+        window.parent.document.getElementById('verification').scrollIntoView();
+      }
+
 
       function executeFunctionWhenElementInViewport(entries, observer) {
         setTimeout(function () {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              isNotSafari ? window.parent.document.getElementById("identification").style.display = 'none' : null;
               document.querySelector(
                 ".umboarding-review-container"
               ).style.display = "flex";

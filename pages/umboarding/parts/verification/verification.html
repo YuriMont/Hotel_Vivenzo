@@ -21,6 +21,7 @@
       <div class="umboarding-verification-container-operation">
         <div class="umboarding-verification-container-box">
           <input-field
+            content-popover="email"
             id="input-email"
             type-input="email"
             text-field="Endereço de email"
@@ -29,18 +30,27 @@
         </div>
 
         <div class="umboarding-reservation-container-submit-code">
-          <button class="umboarding-reservation-container-submit-code-resend" onclick="submitCode(0)"></button>
+          <button
+            class="umboarding-reservation-container-submit-code-resend"
+            onclick="submitCode(0)"
+          ></button>
           <div class="umboarding-verification-container-opt-code">
             <span>Código invalido</span>
             <opt-input></opt-input>
           </div>
-          <button class="umboarding-reservation-container-submit-code-button" onclick="submitCode(0)">Enviar Código</button>
+          <button
+            class="umboarding-reservation-container-submit-code-button"
+            onclick="submitCode(0)"
+          >
+            Enviar Código
+          </button>
         </div>
       </div>
 
       <div class="umboarding-verification-container-operation">
         <div class="umboarding-verification-container-box">
           <input-field
+            content-popover="telefone"
             id="input-phone"
             type-input="tel"
             text-field="Número do celular"
@@ -49,12 +59,20 @@
         </div>
 
         <div class="umboarding-reservation-container-submit-code">
-          <button class="umboarding-reservation-container-submit-code-resend" onclick="submitCode(1)"></button>
+          <button
+            class="umboarding-reservation-container-submit-code-resend"
+            onclick="submitCode(1)"
+          ></button>
           <div class="umboarding-verification-container-opt-code">
             <span>código invalido</span>
             <opt-input id="code-phone"></opt-input>
           </div>
-          <button class="umboarding-reservation-container-submit-code-button" onclick="submitCode(1)">Enviar Código</button>
+          <button
+            class="umboarding-reservation-container-submit-code-button"
+            onclick="submitCode(1)"
+          >
+            Enviar Código
+          </button>
         </div>
       </div>
 

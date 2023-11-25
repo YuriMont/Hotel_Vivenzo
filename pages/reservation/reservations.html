@@ -18,10 +18,22 @@
     <script defer src="/components/search-input/search-input.js"></script>
     <script defer src="/components/popup/modal-popup.js"></script>
     <script defer src="/components/range/input-range.js"></script>
-    <script defer src="/components/open-door-button/open-door-button.js"></script>
-    <script defer src="/pages/reservation/home/options/lighting/lighting-content.js"></script>
-    <script defer src="/pages/reservation/home/options/air-conditioning/air-conditioning-content.js"></script>
-    <script defer src="/pages/reservation/home/options/tv/tv-content.js"></script>
+    <script
+      defer
+      src="/components/open-door-button/open-door-button.js"
+    ></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/lighting/lighting-content.js"
+    ></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/air-conditioning/air-conditioning-content.js"
+    ></script>
+    <script
+      defer
+      src="/pages/reservation/home/options/tv/tv-content.js"
+    ></script>
 
     <header-page
       class="reservation-skeleton"
@@ -100,7 +112,10 @@
               alt=""
             />
             <div class="reservation-container-buttons-controls" slot="content">
-              <modal-popup is-overlaid="true" class="reservation-container-buttons-controls-icon">
+              <modal-popup
+                is-overlaid="true"
+                class="reservation-container-buttons-controls-icon"
+              >
                 <div slot="button-content">
                   <img src="/pages/reservation/icons/lamp.svg" alt="" />
                   <p>Iluminação</p>
@@ -114,7 +129,10 @@
                   <lighting-content></lighting-content>
                 </div>
               </modal-popup>
-              <modal-popup is-overlaid="true" class="reservation-container-buttons-controls-icon">
+              <modal-popup
+                is-overlaid="true"
+                class="reservation-container-buttons-controls-icon"
+              >
                 <div slot="button-content">
                   <img
                     src="/pages/reservation/icons/air-conditioning.svg"
@@ -131,7 +149,10 @@
                   <air-conditioning-content></air-conditioning-content>
                 </div>
               </modal-popup>
-              <modal-popup is-overlaid="true" class="reservation-container-buttons-controls-icon">
+              <modal-popup
+                is-overlaid="true"
+                class="reservation-container-buttons-controls-icon"
+              >
                 <div slot="button-content">
                   <img src="/pages/reservation/icons/tv.svg" alt="" />
                   <p>TV</p>
@@ -145,7 +166,6 @@
                   <tv-content></tv-content>
                 </div>
               </modal-popup>
-
             </div>
           </modal-popup>
           <open-door-button></open-door-button>
@@ -159,14 +179,40 @@
       const allReservationSkeleton = document.querySelectorAll(
         ".reservation-skeleton"
       );
-      window.addEventListener("load", () => {
-        allReservationSkeleton.forEach((item) => {
-          item.classList.remove("reservation-skeleton");
+
+      const isNotSafari = !(
+        /Safari/.test(navigator.userAgent) &&
+        /Apple Computer/.test(navigator.vendor)
+      );
+
+      const targetElement =
+        window.parent.document.getElementById("reservations");
+
+      const nextPage = window.parent.document.getElementById("home");
+
+      function executeFunctionWhenElementInViewport(entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            nextPage.contentWindow.location.reload();
+
+            setTimeout(function () {
+              allReservationSkeleton.forEach((item) => {
+                item.classList.remove("reservation-skeleton");
+              });
+            }, 3000);
+          }
         });
-      });
+      }
+
+      const observer = new IntersectionObserver(
+        executeFunctionWhenElementInViewport,
+        { threshold: 0.2 }
+      );
+
+      observer.observe(targetElement);
 
       function next() {
-        window.location.href = "/pages/reservation/home/home.html";
+        nextPage.scrollIntoView();
       }
     </script>
   </body>

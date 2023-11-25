@@ -13,7 +13,7 @@ templateRoomInformation.innerHTML = `
     <span id="reservation-code"></span>  
     <span id="number-room"></span>
     <span class="room-information-container-data-item-password">
-      <input id="password" type="text"/>
+      <input id="password" type="text" inputmode="numeric" maxlength="4"/>
       <img src="" alt="edit"/>
     </span>
   </div>

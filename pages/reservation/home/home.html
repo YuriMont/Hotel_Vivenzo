@@ -10,7 +10,7 @@
     <script defer src="/components/header/header-page.js"></script>
     <script defer src="/components/language-select/language-select.js"></script>
     <script defer src="/components/footer/footer-page.js"></script>
-    <script defer src="/components/carrousel/carrosel.js"></script>
+    <script defer src="/components/carousel/carousel.js"></script>
     <script
       defer
       src="/components/room-information/room-information.js"
@@ -79,7 +79,7 @@
     <main class="home-container">
       <section>
         <h1 class="home-skeleton">Detalhes da reserva</h1>
-        <carrousel-content class="home-skeleton"></carrousel-content>
+        <carousel-content class="home-skeleton"></carousel-content>
 
         <room-information
           class="home-skeleton"
@@ -280,11 +280,39 @@
 
     <script>
       const allHomeSkeleton = document.querySelectorAll(".home-skeleton");
-      window.addEventListener("load", () => {
-        allHomeSkeleton.forEach((item) => {
-          item.classList.remove("home-skeleton");
+
+      const isNotSafari = !(
+        /Safari/.test(navigator.userAgent) &&
+        /Apple Computer/.test(navigator.vendor)
+      );
+
+      const targetElement = window.parent.document.getElementById("home");
+
+      function executeFunctionWhenElementInViewport(entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const previousPage =
+              window.parent.document.getElementById("reservations");
+              
+            previousPage.contentWindow.location.reload();
+            if (isNotSafari) {
+              previousPage.style.display = "none";
+            }
+            setTimeout(function () {
+              allHomeSkeleton.forEach((item) => {
+                item.classList.remove("home-skeleton");
+              });
+            }, 3000);
+          }
         });
-      });
+      }
+
+      const observer = new IntersectionObserver(
+        executeFunctionWhenElementInViewport,
+        { threshold: 0.2 }
+      );
+
+      observer.observe(targetElement);
 
       document.querySelectorAll("details").forEach((element) => {
         element.addEventListener("toggle", function () {

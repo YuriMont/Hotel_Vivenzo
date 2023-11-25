@@ -23,18 +23,18 @@
         <div class="umboarding-error-container-dot"></div>
       </span>
 
-      <button onclick="scrollToNextIframe('payment')">
+      <button onclick="scrollToPreviousIframe('payment')">
         <img src="/pages/umboarding/parts/erro/images/left.svg" alt="" />
       </button>
     </section>
     <script>
+      const targetElement = window.parent.document.getElementById("error");
       function redirect() {
         setTimeout(function () {
           window.parent.document.getElementById("success").scrollIntoView();
         }, 10000); // 10 segundos
       }
-      const targetElement = window.parent.document.getElementById("error");
-
+      
       function executeFunctionWhenElementInViewport(entries, observer) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -49,7 +49,7 @@
       );
 
       observer.observe(targetElement);
-      function scrollToNextIframe(page) {
+      function scrollToPreviousIframe(page) {
         window.parent.document.getElementById(page).scrollIntoView();
       }
     </script>

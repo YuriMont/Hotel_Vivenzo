@@ -16,10 +16,25 @@
         <div class="umboarding-success-container-dot"></div>
       </span>
 
-      <a href="/pages/reservation/reservations.html">
+      <button onclick="redirect()">
         <img src="/pages/umboarding/parts/success/images/left.svg" alt="" />
-      </a>
+      </button>
     </section>
 
+    <script>
+      const isNotSafari = !(
+        /Safari/.test(navigator.userAgent) &&
+        /Apple Computer/.test(navigator.vendor)
+      );
+
+      function redirect() {
+        if (isNotSafari) {
+          window.parent.document.getElementById("payment").style.display = 'none';
+          window.parent.document.getElementById("waiting").style.display = 'none';
+          window.parent.document.getElementById("error").style.display = 'none';
+          window.parent.document.getElementById("success").style.display = 'none';        
+        }
+      }
+    </script>
   </body>
 </html>

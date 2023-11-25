@@ -19,19 +19,24 @@
         <ul class="umboarding-address-container-card-box">
           <li onkeydown="nextInput(event, 0)">
             <input-field
+              content-popover="cep"
               required-field="true"
               text-field="CEP"
             ></input-field>
           </li>
           <li onkeydown="nextInput(event, 1)">
             <input-field
+              content-popover="numero"
               required-field="true"
               type-input="number"
               text-field="Número da residência"
             ></input-field>
           </li>
           <li onkeydown="nextInput(event, 2)">
-            <input-field text-field="Ponto de referência"></input-field>
+            <input-field
+              content-popover="referência"
+              text-field="Ponto de referência"
+            ></input-field>
           </li>
         </ul>
 
@@ -125,7 +130,7 @@
         </div>
       </div>
     </section>
-    
+
     <script src="/pages/umboarding/parts/address/address.js"></script>
   </body>
 </html>

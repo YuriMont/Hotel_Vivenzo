@@ -21,6 +21,7 @@ class HeaderPage extends HTMLElement {
       this.shadowRoot.appendChild(clone);
       this._titleHeader = "";
       this._typeHeader = "";
+      this.isNotSafari = !(/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor));
       this.btnBack = this.shadowRoot.getElementById('back');
 
       document.addEventListener("DOMContentLoaded", () => {
@@ -29,7 +30,11 @@ class HeaderPage extends HTMLElement {
     }
 
     toggleBack(){
-      window.history.back();
+      const page = window.parent.document.getElementById("reservations")
+      if(this.isNotSafari){
+        page.style.display = 'block';
+      }
+      page.scrollIntoView();
     }
 
     set titleHeader(title_header){

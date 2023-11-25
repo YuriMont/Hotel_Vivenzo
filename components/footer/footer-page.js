@@ -4,22 +4,22 @@ templateFooterPage.innerHTML = `
 
 <footer class="footer-page">
         <nav class="footer-page-nav">
-            <a href="/pages/reservation/reservations.html" class="footer-page-shortcut">
+            <button id="redirect-home-icon" class="footer-page-shortcut">
                 <img src="/components/footer/icons/home.svg" alt="home">
                 <span>Home</span>
-            </a>
-            <a href="" class="footer-page-shortcut">
+            </button>
+            <button class="footer-page-shortcut">
                 <img src="/components/footer/icons/history.svg" alt="home">
                 <span>Histórico</span>
-            </a>
-            <a href="" class="footer-page-shortcut">
+            </button>
+            <button class="footer-page-shortcut">
                 <img src="/components/footer/icons/profile.svg" alt="home">
                 <span>Eu</span>
-            </a>
-            <a href="" class="footer-page-shortcut">
+            </button>
+            <button class="footer-page-shortcut">
                 <img src="/components/footer/icons/help.svg" alt="home">
                 <span>Ajuda</span>
-            </a>
+            </button>
         </nav>
 </footer>
 `;
@@ -30,14 +30,22 @@ class FooterPage extends HTMLElement {
     this.attachShadow({ mode: "open" });
     let clone = templateFooterPage.content.cloneNode(true);
     this.shadowRoot.appendChild(clone);
+    this.isNotSafari = !(
+      /Safari/.test(navigator.userAgent) &&
+      /Apple Computer/.test(navigator.vendor)
+    );
+    this.shadowRoot
+      .getElementById("redirect-home-icon")
+      .addEventListener("click", this.redirectReservations.bind(this));
+  }
+
+  redirectReservations() {
+    const page = window.parent.document.getElementById("reservations");
+    if (this.isNotSafari) {
+      page.style.display = "block";
+    }
+    page.scrollIntoView();
   }
 }
 
 customElements.define("footer-page", FooterPage);
-
-// const routes = {
-//     404: "/pages/404.html",
-//     "/": "/pages/index.html",
-//     "/about": "/pages/about.html",
-//     "/lorem": "/pages/lorem.html",
-// };
