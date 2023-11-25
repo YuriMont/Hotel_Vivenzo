@@ -37,31 +37,6 @@ class FooterPage extends HTMLElement {
     this.shadowRoot
       .getElementById("redirect-home-icon")
       .addEventListener("click", this.redirectReservations.bind(this));
-
-    document.addEventListener("DOMContentLoaded", () => {
-      if (this.isChromeOrFirefox()) {
-        //this.shadowRoot.querySelector(".footer-page").style.bottom = "6vh";
-      }
-
-      window.addEventListener("scroll", () => {
-        if (this.notHasMoreScrollDown() && this.isChromeOrFirefox()) {
-          this.shadowRoot.querySelector(".footer-page").style.bottom = "0vh";
-        }
-      });
-    });
-  }
-
-  hasMoreScrollUp(){
-    return window.pageYOffset >= 0;
-  }
-
-  isChromeOrFirefox() {
-    return typeof window.chrome !== 'undefined' || /firefox/i.test(navigator.userAgent)
-  }
-
-  notHasMoreScrollDown() {
-      return (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
-    
   }
 
   redirectReservations() {

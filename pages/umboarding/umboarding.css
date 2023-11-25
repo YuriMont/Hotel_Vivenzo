@@ -9,7 +9,7 @@
 
 .umboarding-initial-container {
   width: 100vw;
-  height: 100%;
+  height: 100dvh;
   display: none;
   padding: 2rem;
   gap: 2rem;
