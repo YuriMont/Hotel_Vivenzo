@@ -2,7 +2,7 @@ const templateFooterPage = document.createElement("template");
 templateFooterPage.innerHTML = `
 <link rel="stylesheet" href="/components/footer/footer-page.css" />
 
-<footer class="footer-page">
+<div class="footer-page">
         <nav class="footer-page-nav">
             <button id="redirect-home-icon" class="footer-page-shortcut">
                 <img src="/components/footer/icons/home.svg" alt="home">
@@ -21,7 +21,7 @@ templateFooterPage.innerHTML = `
                 <span>Ajuda</span>
             </button>
         </nav>
-</footer>
+</div>
 `;
 
 class FooterPage extends HTMLElement {
