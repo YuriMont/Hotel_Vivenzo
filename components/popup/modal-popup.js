@@ -46,10 +46,6 @@ class ModalPopUp extends HTMLElement {
   toggleModal() {
     this.open = !this.open;
 
-    window.onbeforeunload = function () {
-      return ".";
-    };
-
     if (this.open) {
       window.document.body.style.overflow = "hidden";
       this.modal.style.display = "grid";
@@ -57,7 +53,7 @@ class ModalPopUp extends HTMLElement {
         "top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both"; // Adicionando transição
       this.modalContent.style.top = this.is_overlaid ? "10vh" : "0";
     } else {
-      window.document.body.style.overflow = "auto";
+      window.document.body.style.overflowY = "auto";
 
       if (this.is_overlaid) {
         // Adicionando uma animação ao fechar o modal

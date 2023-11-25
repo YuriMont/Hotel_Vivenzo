@@ -59,7 +59,6 @@ body {
 
 .home-container {
   padding: 1rem;
-  padding-bottom: 14vh;
   display: flex;
   flex-direction: column;
   gap: 1rem;

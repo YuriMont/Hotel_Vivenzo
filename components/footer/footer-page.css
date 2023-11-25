@@ -1,7 +1,7 @@
 @import url('/main.css');
 
 .footer-page{
-    position: fixed;
+    position: sticky;
     z-index: 1000;
     background-color: var(--purple-700);
     border-top: 2px solid var(--gray-300);
@@ -10,7 +10,7 @@
     justify-content: center;
     height: 10vh;
     width: 100vw;
-    bottom: 0;
+    top: 90vh;
 }
 
 .footer-page-nav{

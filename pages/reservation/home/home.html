@@ -11,67 +11,25 @@
     <script defer src="/components/language-select/language-select.js"></script>
     <script defer src="/components/footer/footer-page.js"></script>
     <script defer src="/components/carousel/carousel.js"></script>
-    <script
-      defer
-      src="/components/room-information/room-information.js"
-    ></script>
-    <script
-      defer
-      src="/components/open-door-button/open-door-button.js"
-    ></script>
+    <script defer src="/components/room-information/room-information.js"></script>
+    <script defer src="/components/open-door-button/open-door-button.js"></script>
     <script defer src="/components/popup/modal-popup.js"></script>
-    <script
-      defer
-      src="/pages/reservation/home/options/breakfast/breakfast-content.js"
-    ></script>
+    <script defer src="/pages/reservation/home/options/breakfast/breakfast-content.js"></script>
     <script defer src="/components/item-list/item-list.js"></script>
     <script defer src="/components/info-card/info-card.js"></script>
-    <script
-      defer
-      src="/pages/reservation/home/options/access/access-content.js"
-    ></script>
-    <script
-      defer
-      src="/pages/reservation/home/options/access/limited/limited.js"
-    ></script>
-    <script
-      defer
-      src="/pages/reservation/home/options/access/vip/vip.js"
-    ></script>
-    <script
-      defer
-      src="/pages/reservation/home/options/parking/parking-content.js"
-    ></script>
-    <script
-      defer
-      src="/pages/reservation/home/options/bed/bed-content.js"
-    ></script>
-    <script
-      defer
-      src="/pages/reservation/home/options/minibar/minibar-content.js"
-    ></script>
-    <script
-      defer
-      src="/pages/reservation/home/options/network/network-content.js"
-    ></script>
-    <script
-      defer
-      src="/pages/reservation/home/options/safe/safe-content.js"
-    ></script>
+    <script defer src="/pages/reservation/home/options/access/access-content.js"></script>
+    <script defer src="/pages/reservation/home/options/access/limited/limited.js"></script>
+    <script defer src="/pages/reservation/home/options/access/vip/vip.js"></script>
+    <script defer src="/pages/reservation/home/options/parking/parking-content.js"></script>
+    <script defer src="/pages/reservation/home/options/bed/bed-content.js"></script>
+    <script defer src="/pages/reservation/home/options/minibar/minibar-content.js"></script>
+    <script defer src="/pages/reservation/home/options/network/network-content.js"></script>
+    <script defer src="/pages/reservation/home/options/safe/safe-content.js"></script>
     <script defer src="/components/range/input-range.js"></script>
-    <script
-      defer
-      src="/pages/reservation/home/options/lighting/lighting-content.js"
-    ></script>
-    <script
-      defer
-      src="/pages/reservation/home/options/air-conditioning/air-conditioning-content.js"
-    ></script>
-    <script
-      defer
-      src="/pages/reservation/home/options/tv/tv-content.js"
-    ></script>
-
+    <script defer src="/pages/reservation/home/options/lighting/lighting-content.js"></script>
+    <script defer src="/pages/reservation/home/options/air-conditioning/air-conditioning-content.js"></script>
+    <script defer src="/pages/reservation/home/options/tv/tv-content.js"></script>
+ 
     <header-page
       class="home-skeleton"
       title-header="Hotel Vivenzo"
@@ -293,7 +251,7 @@
           if (entry.isIntersecting) {
             const previousPage =
               window.parent.document.getElementById("reservations");
-              
+
             previousPage.contentWindow.location.reload();
             if (isNotSafari) {
               previousPage.style.display = "none";
