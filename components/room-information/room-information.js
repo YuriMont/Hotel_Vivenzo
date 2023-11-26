@@ -14,7 +14,7 @@ templateRoomInformation.innerHTML = `
     <span id="number-room"></span>
     <span class="room-information-container-data-item-password">
       <input id="password" type="text" inputmode="numeric" maxlength="4"/>
-      <img src="" alt="edit"/>
+      <span class="room-information-container-data-item-password-bubble"><img src="" alt="edit"/></span>
     </span>
   </div>
   <div class="room-information-container-data-open-door">
@@ -29,7 +29,7 @@ templateRoomInformation.innerHTML = `
       <input type="date" id="checkin"/>
       <div class="room-information-container-inputs-date-calendar-icon">
         <img
-          src="/components/room-information/icons/calendar.svg"
+          src="/components/room-information/icons/edit.svg"
           alt=""
         />
       </div>
@@ -41,7 +41,7 @@ templateRoomInformation.innerHTML = `
           <input type="date" id="checkout"/>
           <div class="room-information-container-inputs-date-calendar-icon">
             <img
-              src="/components/room-information/icons/calendar.svg"
+              src="/components/room-information/icons/edit.svg"
               alt=""
             />
           </div>

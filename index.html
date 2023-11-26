@@ -40,7 +40,7 @@
       <iframe
         id="success"
         src="/pages/umboarding/parts/success/success.html"
-      ></iframe>
+      ></iframe> 
       <iframe
         id="reservations"
         src="/pages/reservation/reservations.html"
@@ -48,6 +48,11 @@
       <iframe id="home" src="/pages/reservation/home/home.html"></iframe>
     </div>
 
-
+    <script>
+      window.addEventListener("beforeunload", function (e) {
+        e.preventDefault();
+        e.returnValue = "";
+      });
+    </script>
   </body>
 </html>

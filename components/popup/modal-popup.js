@@ -52,16 +52,13 @@ class ModalPopUp extends HTMLElement {
       this.modal.style.display = "grid";
       this.modalContent.style.top = this.is_overlaid ? "10vh" : "0";
     } else {
-      window.document.body.style.overflowY = "auto";
-
-      if (this.is_overlaid) {
-        this.modalContent.style.top = "100%";
-      } else {
-        this.modalContent.style.top = "100vh";
-      }
-
-      this.modal.style.display = "none";
-      this.modalContent.style.top = "0";
+      this.modalContent.style.transition = "transform 2s ease-out;"
+      this.modalContent.style.transform = "translateY(100%)";
+      
+      setTimeout(()=>{
+        window.document.body.style.overflowY = "auto";
+        this.modal.style.display = "none";
+      }, 2000)
     }
   }
 

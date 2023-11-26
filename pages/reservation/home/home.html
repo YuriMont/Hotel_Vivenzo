@@ -246,27 +246,6 @@
 
       const targetElement = window.parent.document.getElementById("home");
 
-      document.querySelector('.home-container room-information').addEventListener("focusin", () => {
-        if (isNotSafari) {
-          window.parent.document.getElementById("reservations").style.display =
-            "none";
-        }
-        document.querySelector('footer-page').style.display = 'none'
-      });
-
-      document.querySelector('.home-container room-information').addEventListener("focusout", () => {
-        if (isNotSafari) {
-          window.parent.document.getElementById("success").style.display =
-            "none";
-        }
-        document.querySelector('footer-page').style.display = 'flex';
-      });
-
-      window.addEventListener('beforeunload', function (e) {
-            e.preventDefault();
-            e.returnValue = '';
-        });
-
       function executeFunctionWhenElementInViewport(entries, observer) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {

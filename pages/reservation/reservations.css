@@ -23,7 +23,7 @@ body{
 
 .reservation-container {
   padding: 1rem;
-  margin-bottom: 10vh;
+  margin-bottom: 8vh;
   display: flex;
   flex-direction: column;
   gap: 1rem;
