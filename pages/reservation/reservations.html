@@ -189,8 +189,8 @@
 
       function next() {
         if (isNotSafari) {
-          // window.parent.document.getElementById("success").style.display =
-          //  "none";
+          window.parent.document.getElementById("success").style.display =
+            "none";
         }
         nextPage.scrollIntoView();
       }
@@ -200,14 +200,12 @@
       function executeFunctionWhenElementInViewport(entries, observer) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            
             nextPage.contentWindow.location.reload();
-            document.querySelector('footer-page').style.display = 'block';
+            document.querySelector("footer-page").style.display = "block";
             setTimeout(function () {
               allReservationSkeleton.forEach((item) => {
                 item.classList.remove("reservation-skeleton");
               });
-              
             }, 3000);
           }
         });
@@ -223,10 +221,10 @@
       document
         .querySelector(".reservation-container search-input")
         .addEventListener("focusin", () => {
-          // if (isNotSafari) {
-          //    window.parent.document.getElementById("success").style.display =
-          //      "none";
-          // }
+          if (isNotSafari) {
+            window.parent.document.getElementById("success").style.display =
+              "none";
+          }
           document.querySelector("footer-page").style.display = "none";
         });
 
