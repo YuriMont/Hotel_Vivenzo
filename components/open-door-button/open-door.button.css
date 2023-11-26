@@ -32,7 +32,7 @@
   border-top: 0.25rem solid #22c55e;
   border-right: 0.25rem solid #22c55e;
   border-radius: 2px;
-  animation: border-top-loading 5s normal;
+  animation: border-top-loading 5s ease;
 }
 
 .open-door-container:disabled::after{
@@ -45,7 +45,7 @@
   border-bottom: 0.25rem solid #22c55e;
   border-left: 0.25rem solid #22c55e;
   border-radius: 2px;
-  animation: border-bottom-loading 5s normal;
+  animation: border-bottom-loading 5s ease;
 }
 
 @keyframes border-top-loading {
