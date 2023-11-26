@@ -65,25 +65,42 @@ class RoomInformation extends HTMLElement {
     this.attachShadow({ mode: "open" });
     let clone = templateRoomInformation.content.cloneNode(true);
     this.shadowRoot.appendChild(clone);
-    this.editButton = this.shadowRoot.querySelector(".room-information-container-data-item-password img");
+    this.editButton = this.shadowRoot.querySelector(
+      ".room-information-container-data-item-password img"
+    );
     this.passwordInput = this.shadowRoot.getElementById("password");
 
     document.addEventListener("DOMContentLoaded", () => {
-      this.shadowRoot.getElementById('checkin').value = new Date().toISOString().split('T')[0];
-      this.shadowRoot.getElementById('checkout').value = new Date().toISOString().split('T')[0];
+      this.shadowRoot.getElementById("checkin").value = new Date()
+        .toISOString()
+        .split("T")[0];
+      this.shadowRoot.getElementById("checkout").value = new Date()
+        .toISOString()
+        .split("T")[0];
+
+        this.shadowRoot.getElementById("checkout").addEventListener('change', () => {
+          this.blur();
+        });
+
+        this.shadowRoot.getElementById("checkin").addEventListener('change', () => {
+          this.blur();
+        });
+
       this.passwordInput.disabled = true;
       this.editButton.src = "/components/room-information/icons/edit.svg";
       this.editButton.addEventListener("click", this.changePassword.bind(this));
     });
   }
 
-  changePassword(){
+  changePassword() {
     this.passwordInput.disabled = !this.passwordInput.disabled;
-   
-    if(this.passwordInput.disabled){
+
+    if (this.passwordInput.disabled) {
       this.editButton.src = "/components/room-information/icons/edit.svg";
-      !this.passwordInput.value.includes('#') ? this.passwordInput.value += '#' : null;
-    }else{
+      !this.passwordInput.value.includes("#")
+        ? (this.passwordInput.value += "#")
+        : null;
+    } else {
       this.passwordInput.value = this.passwordInput.value.replace("#", "");
       this.passwordInput.focus();
       this.editButton.src = "/components/room-information/icons/check.svg";

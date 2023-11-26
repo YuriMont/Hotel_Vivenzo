@@ -215,7 +215,7 @@
 
       const observer = new IntersectionObserver(
         executeFunctionWhenElementInViewport,
-        { threshold: 0.2 }
+        { threshold: 1 }
       );
 
       observer.observe(targetElement);
@@ -227,8 +227,18 @@
              window.parent.document.getElementById("success").style.display =
                "none";
           }
+          document.querySelector("footer-page").style.display = "none";
         });
 
+      document
+        .querySelector(".reservation-container search-input")
+        .addEventListener("focusout", () => {
+          if (isNotSafari) {
+            window.parent.document.getElementById("success").style.display =
+               "none";
+          }
+          document.querySelector("footer-page").style.display = "flex";
+        });
     </script>
   </body>
 </html>
