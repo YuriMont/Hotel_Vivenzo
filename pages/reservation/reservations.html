@@ -197,6 +197,11 @@
       const targetElement =
         window.parent.document.getElementById("reservations");
 
+      window.addEventListener("scroll", () => {
+        document.querySelector(".reservation-container").style.marginTop =
+          "4rem";
+      });
+
       function executeFunctionWhenElementInViewport(entries, observer) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {

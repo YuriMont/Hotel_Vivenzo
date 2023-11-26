@@ -32,16 +32,8 @@ class HeaderPage extends HTMLElement {
     document.addEventListener("DOMContentLoaded", () => {
       this.btnBack.addEventListener("click", this.toggleBack.bind(this));
 
-      window.addEventListener("scroll", () => {this.toggleChangeHeaderPage(window.pageYOffset === 0)});
+      window.addEventListener("scroll", () => {this.headerContent.style.height = "4rem";});
     });
-  }
-
-  toggleChangeHeaderPage(isScrolled){
-    if(!isScrolled){
-      this.headerContent.style.height = "4rem";
-    }else{
-      this.headerContent.style.height = "7rem";
-    }
   }
 
   toggleBack() {

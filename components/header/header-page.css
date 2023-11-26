@@ -14,7 +14,7 @@
   height: 7rem;
   font-size: var(--text-base);
   font-weight: var(--font-regular);
-  z-index: 1;
+  z-index: 1000;
 }
 
 .header-page-container h1{

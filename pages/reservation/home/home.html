@@ -288,6 +288,10 @@
 
       const targetElement = window.parent.document.getElementById("home");
 
+      window.addEventListener("scroll", () => {
+        document.querySelector(".home-container").style.marginTop = "4rem";
+      });
+
       function executeFunctionWhenElementInViewport(entries, observer) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -315,17 +319,10 @@
       observer.observe(targetElement);
 
       document
-        .querySelector(".home-container room-information")
-        .addEventListener("focusin", () => {
-          document.querySelector("footer-page").style.display = "none";
-        });
-
-      document
-        .querySelector(".home-container room-information")
-        .addEventListener("focusout", () => {
-          document.querySelector("footer-page").style.display = "flex";
-        });
-
+        .querySelector(".home-container room-information").addEventListener("focusInInput", (event) => {
+          event.detail ? document.querySelector("footer-page").style.display = "none" : document.querySelector("footer-page").style.display = "flex";
+        })
+      
       document.querySelectorAll("details").forEach((element) => {
         element.addEventListener("toggle", function () {
           if (element.open) {

@@ -87,15 +87,19 @@
 }
 
 .room-information-container-data-item {
+  position: relative;
+  bottom: -0.125rem;
   color: var(--purple-400);
   font-size: var(--text-sm);
   font-weight: var(--font-semibold);
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 2px;
 }
 
 .room-information-container-data-item-password{
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -117,6 +121,9 @@
 }
 
 .room-information-container-data-item-password-bubble{
+  position: absolute;
+  left: calc(5ch + 1rem);
+  bottom: -0.25rem;
   display: flex;
   align-items: center;
   border-radius: 0.25rem;

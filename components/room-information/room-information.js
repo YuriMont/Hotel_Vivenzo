@@ -78,11 +78,15 @@ class RoomInformation extends HTMLElement {
         .toISOString()
         .split("T")[0];
 
-        this.shadowRoot.getElementById("checkout").addEventListener('change', () => {
+      this.shadowRoot
+        .getElementById("checkout")
+        .addEventListener("change", () => {
           this.blur();
         });
 
-        this.shadowRoot.getElementById("checkin").addEventListener('change', () => {
+      this.shadowRoot
+        .getElementById("checkin")
+        .addEventListener("change", () => {
           this.blur();
         });
 
@@ -123,6 +127,16 @@ class RoomInformation extends HTMLElement {
     this.codReservation = this.getAttribute("reservation-code") || "";
     this.numberRoom = this.getAttribute("number-room") || "";
     this.password = this.getAttribute("password-room") || "";
+
+    this.shadowRoot.querySelectorAll("input").forEach((item) => {
+      item.addEventListener("focus", () => {
+        this.dispatchEvent(new CustomEvent("focusInInput", { detail: true }));
+      });
+
+      item.addEventListener("blur", () => {
+        this.dispatchEvent(new CustomEvent("focusInInput", { detail: false }));
+      });
+    });
   }
 }
 
