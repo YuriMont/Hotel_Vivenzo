@@ -9,7 +9,7 @@
   min-width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  padding-bottom: 10vh;
+  padding-bottom: 8vh;
   padding-top: 10vh;
   z-index: 1000;
   overflow-y: auto;
@@ -23,7 +23,14 @@
   border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
   width: 100%;
   z-index: 2000;
+}
+
+.modal-popup-container-content.opening{
   animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.modal-popup-container-content.closing{
+  animation: going-down 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .modal-popup-container-content-icon {
