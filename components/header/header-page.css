@@ -1,15 +1,20 @@
 @import url('/main.css');
 
 .header-page-container{
+  position: fixed;
+  top: 0;
+  width: 100dvw;
   display: flex;
   justify-content: space-around;
   align-items: center;
   color: white;
   border-bottom-left-radius: var(--rounded-lg);
   border-bottom-right-radius: var(--rounded-lg);
-  padding: 2rem 0.5rem;
+  padding: 0.5rem;
+  height: 7rem;
   font-size: var(--text-base);
   font-weight: var(--font-regular);
+  z-index: 1;
 }
 
 .header-page-container h1{
@@ -22,7 +27,6 @@
     var(--purple-700) 0%,
     var(--purple-600) 100%
   );
-  padding: 3rem 0.5rem;
 }
 
 .header-page-container-primary{

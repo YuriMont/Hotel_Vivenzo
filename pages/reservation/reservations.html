@@ -189,8 +189,8 @@
 
       function next() {
         if (isNotSafari) {
-          window.parent.document.getElementById("success").style.display =
-           "none";
+          // window.parent.document.getElementById("success").style.display =
+          //  "none";
         }
         nextPage.scrollIntoView();
       }
@@ -223,20 +223,16 @@
       document
         .querySelector(".reservation-container search-input")
         .addEventListener("focusin", () => {
-          if (isNotSafari) {
-             window.parent.document.getElementById("success").style.display =
-               "none";
-          }
+          // if (isNotSafari) {
+          //    window.parent.document.getElementById("success").style.display =
+          //      "none";
+          // }
           document.querySelector("footer-page").style.display = "none";
         });
 
       document
         .querySelector(".reservation-container search-input")
         .addEventListener("focusout", () => {
-          if (isNotSafari) {
-            window.parent.document.getElementById("success").style.display =
-               "none";
-          }
           document.querySelector("footer-page").style.display = "flex";
         });
     </script>

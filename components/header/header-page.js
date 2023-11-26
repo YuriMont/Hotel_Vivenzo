@@ -38,9 +38,9 @@ class HeaderPage extends HTMLElement {
 
   toggleChangeHeaderPage(isScrolled){
     if(!isScrolled){
-      this.headerContent.style.padding = "0.5rem";
+      this.headerContent.style.height = "4rem";
     }else{
-      this.headerContent.style.padding = "2rem 0.5rem";
+      this.headerContent.style.height = "7rem";
     }
   }
 

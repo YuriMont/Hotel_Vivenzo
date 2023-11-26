@@ -23,6 +23,7 @@ body{
 
 .reservation-container {
   padding: 1rem;
+  margin-top: 7rem;
   margin-bottom: 8vh;
   display: flex;
   flex-direction: column;
