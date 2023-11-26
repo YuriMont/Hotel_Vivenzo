@@ -44,12 +44,14 @@
   border: none;
   outline: none;
   padding-left: 0;
+  color: var(--purple-400);
   font-size: var(--text-sm);
   font-weight: var(--font-light);
   background-color: transparent;
   appearance: textfield;
   -webkit-appearance: textfield;
   color: initial;
+  color: var(--purple-400);
 }
 
 .room-information-container-inputs-date-calendar-icon {
