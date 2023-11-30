@@ -114,19 +114,6 @@
   width: 100%;
 }
 
-.umboarding-payment-container-credicard-input-field-val{
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  color: var(--gray-300);
-  width: 7vh;
-  font-size: var(--text-sm);
-}
-
-.umboarding-payment-container-credicard-input-field-val input{
-  text-align: center;
-}
-
 .umboarding-payment-container-credicard-icon-card {
   position: absolute;
   top: 2rem;
@@ -209,6 +196,19 @@
 
 #umboarding-payment-container-credicard-input-field-text-cvv input {
   width: 3ch;
+}
+
+.umboarding-payment-container-credicard-input-field-val{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--gray-300);
+  font-size: var(--text-sm);
+}
+
+.umboarding-payment-container-credicard-input-field-val .umboarding-payment-container-credicard-input-field-text input{
+  text-align: center;
+  width: 2ch;
 }
 
 @keyframes coming-down {

@@ -90,14 +90,12 @@
       }
 
       window.addEventListener("hashchange", checkUrlAndDisplayElement);
-
-      document.addEventListener("DOMContentLoaded", (event) => {
+      window.addEventListener('load', () => {
+        window.location.href = "#umboarding";
         document.querySelector(
           ".umboarding-initial-container-spinner"
         ).style.display = "none";
-
-        window.location.href = "#umboarding";
-        checkUrlAndDisplayElement()
+        checkUrlAndDisplayElement();
       });
 
       window.addEventListener("beforeunload", function (e) {
