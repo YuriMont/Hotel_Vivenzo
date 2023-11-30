@@ -52,3 +52,5 @@ class AccessContentLimited extends HTMLElement {
 }
 
 customElements.define("access-content-limited", AccessContentLimited);
+
+export { AccessContentLimited }

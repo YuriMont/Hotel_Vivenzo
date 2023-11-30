@@ -4,7 +4,7 @@
   position: relative;
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  min-height: 100dvh;
   display: flex;
   padding: 2rem;
   gap: 2rem;
@@ -93,6 +93,7 @@
   50% { opacity: 0; }
   100% { opacity: 1; }
 }
+
 
 
 @media (min-width: 600px) {

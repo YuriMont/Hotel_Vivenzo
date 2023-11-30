@@ -88,3 +88,5 @@ class InputRange extends HTMLElement {
 }
 
 customElements.define("input-range", InputRange);
+
+export { InputRange }

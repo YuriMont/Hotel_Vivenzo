@@ -42,3 +42,5 @@ class NetworkContent extends HTMLElement {
 }
 
 customElements.define("network-content", NetworkContent);
+
+export { NetworkContent }

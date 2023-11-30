@@ -1,184 +1,307 @@
-let userInformation = [
-  {
-    data: "example@gmail.com",
-    isValid: true,
-  },
-  {
-    data: "+55 (21) 98178-9087",
-    isValid: true,
-  },
-];
+import "/components/language-select/language-select.js";
+import "/components/input-field/input-field.js";
+import "/components/opt-input/opt-input.js";
 
-let timeoutId;
+let templateVerificationWebComponent = document.createElement("template");
+templateVerificationWebComponent.innerHTML = `
+<link rel="stylesheet" href="/pages/umboarding/parts/verification/verification.css"/>
+<section class="umboarding-verification-container">
+      <language-select
+        class="umboarding-verification-container-select-language"
+      ></language-select>
 
-const allInputs = document.querySelectorAll("input-field");
+      <div class="umboarding-verification-container-actions">
+      <div class="umboarding-verification-container-operation">
+      <div class="umboarding-verification-container-box">
+        <input-field
+          content-popover="email"
+          id="input-email"
+          type-input="email"
+          text-field="Endereço de email"
+        ></input-field>
+        <span>Trocar</span>
+      </div>
 
-const allCodes = document.querySelectorAll("opt-input");
+      <div class="umboarding-reservation-container-submit-code">
+        <button
+          class="umboarding-reservation-container-submit-code-resend"
+        ></button>
+        <div class="umboarding-verification-container-opt-code">
+          <span>Código invalido</span>
+          <opt-input></opt-input>
+        </div>
+        <button
+          class="umboarding-reservation-container-submit-code-button"
+        >
+          Enviar Código
+        </button>
+      </div>
+    </div>
 
-const allBoxSpans = document.querySelectorAll(
-  ".umboarding-verification-container-box span"
-);
+    <div class="umboarding-verification-container-operation">
+      <div class="umboarding-verification-container-box">
+        <input-field
+          content-popover="telefone"
+          id="input-phone"
+          type-input="tel"
+          text-field="Número do celular"
+        ></input-field>
+        <span>Trocar</span>
+      </div>
 
-const submitCodeButtons = document.querySelectorAll(
-  ".umboarding-reservation-container-submit-code-button"
-);
+      <div class="umboarding-reservation-container-submit-code">
+        <button
+          class="umboarding-reservation-container-submit-code-resend"
+        ></button>
+        <div class="umboarding-verification-container-opt-code">
+          <span>código invalido</span>
+          <opt-input id="code-phone"></opt-input>
+        </div>
+        <button
+          class="umboarding-reservation-container-submit-code-button"
+        >
+          Enviar Código
+        </button>
+      </div>
+    </div>
 
-const resendCodeButtons = document.querySelectorAll(
-  ".umboarding-reservation-container-submit-code-resend"
-);
+    <button
+      id="umboarding-container-confirmation-button"
+    >
+      Continuar
+    </button>
+      </div>
+    </section>
+`;
 
-const isNotSafari = !(/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor));
+class VerificationWebComponent extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    let clone = templateVerificationWebComponent.content.cloneNode(true);
+    this.shadowRoot.appendChild(clone);
 
-window.addEventListener("load", () => {
-  allInputs.forEach((item, index) => {
-    item.setValueInput(userInformation[index].data);
-    item.setIsDisabledInput(true);
-  });
-  enableControls();
-  validationButton();
-});
+    this.userInformation = [
+      {
+        data: "example@gmail.com",
+        isValid: true,
+      },
+      {
+        data: "+55 (21) 98178-9087",
+        isValid: true,
+      },
+    ];
 
-function stopCountdown(index) {
-  if (timeoutId) {
-    clearTimeout(timeoutId);
+    this.timeoutId;
+
+    this.allInputs = this.shadowRoot.querySelectorAll("input-field");
+
+    this.allCodes = this.shadowRoot.querySelectorAll("opt-input");
+
+    this.allBoxSpans = this.shadowRoot.querySelectorAll(
+      ".umboarding-verification-container-box span"
+    );
+
+    this.submitCodeButtons = this.shadowRoot.querySelectorAll(
+      ".umboarding-reservation-container-submit-code-button"
+    );
+
+    this.resendCodeButtons = this.shadowRoot.querySelectorAll(
+      ".umboarding-reservation-container-submit-code-resend"
+    );
+
+    document.addEventListener("DOMContentLoaded", () => {
+      this.shadowRoot
+        .querySelector(".umboarding-verification-container-actions input-field")
+        .addEventListener("focusin", () => {
+          setTimeout(() => {
+            this.scrollToView();
+          }, 700);
+        });
+
+      this.shadowRoot
+        .getElementById("umboarding-container-confirmation-button")
+        .addEventListener("click", () => {
+          window.location.href = "#address";
+        });
+
+      this.submitCodeButtons.forEach((item, index) => {
+        item.addEventListener("click", () => this.submitCode(index));
+      });
+
+      this.resendCodeButtons.forEach((item, index) => {
+        item.addEventListener("click", () => this.submitCode(index));
+      });
+
+      this.allInputs.forEach((item, index) => {
+        item.setValueInput(this.userInformation[index].data);
+        item.setIsDisabledInput(true);
+      });
+      this.enableControls();
+      this.validationButton();
+
+      this.allInputs.forEach((item, index) => {
+        item.addEventListener("verifyText", (event) => {
+          this.submitCodeButtons.item(index).disabled = !event.detail;
+        });
+      });
+
+      this.allCodes.forEach((item, index) => {
+        item.addEventListener("verifyCode", (event) => {
+          let messageError = this.shadowRoot.querySelectorAll(
+            ".umboarding-verification-container-opt-code span"
+          );
+          if (event.detail) {
+            this.userInformation[index].data = this.allInputs
+              .item(index)
+              .getValueInput();
+            this.userInformation[index].isValid = event.detail;
+            this.allInputs
+              .item(index)
+              .setIsDisabledInput(this.userInformation[index].isValid);
+
+            item.style.display = "none";
+            messageError.item(index).style.display = "none";
+            this.enableControls(index);
+          } else {
+            messageError
+              .item(index)
+              .classList.toggle(
+                "umboarding-verification-container-opt-code-animation-error"
+              );
+            item.resetCode();
+            messageError.item(index).style.display = "block";
+          }
+          this.validationButton();
+        });
+      });
+    });
   }
 
-  resendCodeButtons.item(index).disabled = false;
-
-  submitCodeButtons.item(index).disabled = false;
-  resendCodeButtons.item(index).innerHTML = "Não recebeu? <br> Reenviar código";
-}
-
-function updateCountdown(seconds, index) {
-  resendCodeButtons.item(
-    index
-  ).innerHTML = `Não recebeu? <br> Reenviar código (${seconds}s)`;
-  if (seconds > 0) {
-    resendCodeButtons.item(index).disabled = true;
-    resendCodeButtons.item(index).disabled = true;
-    timeoutId = setTimeout(function () {
-      updateCountdown(seconds - 1, index);
-    }, 1000);
-  } else {
-    stopCountdown(index);
+  scrollToView() {
+    const card = this.shadowRoot.querySelector(
+      ".umboarding-verification-container-actions"
+    );
+    card.scrollIntoView({ behavior: "smooth" });
   }
-}
 
-function validationButton() {
-  document.getElementById(
-    "umboarding-container-confirmation-button"
-  ).style.display = !(userInformation[0].isValid && userInformation[1].isValid)
-    ? "none"
-    : "block";
-}
+  stopCountdown(index) {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
 
+    this.resendCodeButtons.item(index).disabled = false;
 
-function enableControls() {
-  document.querySelector('.umboarding-verification-container').style.translate = '0 0';
-  allBoxSpans.forEach((element, i) => {
-    element.style.display = "block";
-    element.innerHTML = "Trocar";
+    this.submitCodeButtons.item(index).disabled = false;
+    this.resendCodeButtons.item(index).innerHTML =
+      "Não recebeu? <br> Reenviar código";
+  }
 
-    allInputs.item(i).setValueInput(userInformation[i].data);
-    stopCountdown(i);
-    //botão desabilitado
-    element.addEventListener("click", () => disableControls(i));
-    allInputs.item(i).setIsDisabledInput(true);
-    allCodes.item(i).style.display = "none";
-  });
+  updateCountdown(seconds, index) {
+    const button = this.resendCodeButtons.item(index);
 
-  document
-    .querySelectorAll(".umboarding-reservation-container-submit-code")
-    .forEach((element) => {
-      element.style.display = "none";
+    button.innerHTML = `Não recebeu? <br> Reenviar código (${seconds}s)`;
+
+    if (seconds > 0) {
+      button.disabled = true;
+
+      this.timeoutId = setTimeout(() => {
+        this.updateCountdown(seconds - 1, index);
+      }, 1000);
+    } else {
+      this.stopCountdown(index);
+    }
+  }
+
+  validationButton() {
+    this.shadowRoot.getElementById(
+      "umboarding-container-confirmation-button"
+    ).style.display = !(
+      this.userInformation[0].isValid && this.userInformation[1].isValid
+    )
+      ? "none"
+      : "block";
+  }
+
+  enableControls() {
+    this.shadowRoot.querySelector(
+      ".umboarding-verification-container"
+    ).style.translate = "0 0";
+    this.allBoxSpans.forEach((element, i) => {
+      element.style.display = "block";
+      element.innerHTML = "Trocar";
+
+      this.allInputs.item(i).setValueInput(this.userInformation[i].data);
+      this.stopCountdown(i);
+
+      element.addEventListener("click", () => this.disableControls(i));
+      this.allInputs.item(i).setIsDisabledInput(true);
+      this.allCodes.item(i).style.display = "none";
     });
 
-  validationButton();
+    this.shadowRoot
+      .querySelectorAll(".umboarding-reservation-container-submit-code")
+      .forEach((element) => {
+        element.style.display = "none";
+      });
+
+    this.validationButton();
+  }
+
+  disableControls(index) {
+    this.allBoxSpans.forEach((element, i) => {
+      if (index == i) {
+        element.innerHTML = "Cancelar";
+        this.allInputs.item(i).setIsDisabledInput(false);
+        this.allInputs.item(i).focusInput();
+        this.submitCodeButtons.item(i).style.display = "block";
+        this.submitCodeButtons.item(i).disabled = true;
+        this.resendCodeButtons.item(i).style.display = "none";
+        element.addEventListener("click", () => this.enableControls());
+        this.shadowRoot.getElementById(
+          "umboarding-container-confirmation-button"
+        ).style.display = "none";
+      } else {
+        element.style.display = "none";
+      }
+    });
+
+    this.shadowRoot
+      .querySelectorAll(".umboarding-reservation-container-submit-code")
+      .item(index).style.display = "flex";
+  }
+
+  submitCode(index) {
+    this.stopCountdown(index);
+    this.allCodes.item(index).resetCode();
+    this.allInputs.item(index).setIsDisabledInput(true);
+    this.allInputs
+      .item(index)
+      .setValueInput(this.allInputs.item(index).getValueInput());
+    this.resendCodeButtons.item(index).style.display = "block";
+    this.submitCodeButtons.item(index).disabled = true;
+    this.updateCountdown(20, index);
+    this.shadowRoot.querySelectorAll(
+      ".umboarding-verification-container-opt-code"
+    )[index].style.display = "flex";
+    this.allCodes[index].style.display = "block";
+    this.allCodes[index].inputFocus();
+  }
 }
 
-function disableControls(index) {
-  isNotSafari ? window.parent.document.getElementById("review").style.display = "none" : null;
-  document.querySelector('.umboarding-verification-container').style.translate = '0 -20%';
-  allBoxSpans.forEach((element, i) => {
-    if (index == i) {
-      element.innerHTML = "Cancelar";
-      allInputs.item(i).setIsDisabledInput(false);
-      allInputs.item(i).focusInput();
-      submitCodeButtons.item(i).style.display = "block";
-      submitCodeButtons.item(i).disabled = true;
-      resendCodeButtons.item(i).style.display = "none";
-      element.addEventListener("click", () => enableControls());
-      document.getElementById(
-        "umboarding-container-confirmation-button"
-      ).style.display = "none";
-    } else {
-      element.style.display = "none";
-    }
-  });
-
-  document
-    .querySelectorAll(".umboarding-reservation-container-submit-code")
-    .item(index).style.display = "flex";
-}
+customElements.define("verification-webcomponent", VerificationWebComponent);
 
 //verificar o input
 
-allInputs.forEach((item, index) => {
-  item.addEventListener("verifyText", (event) => {
-    submitCodeButtons.item(index).disabled = !event.detail;
-  });
-});
+// document
+//   .querySelector(".umboarding-verification-container")
+//   .addEventListener("focusout", () => {
+//     document.querySelector(
+//       ".umboarding-verification-container"
+//     ).style.transform = "translateY(0)";
+//   });
 
-allCodes.forEach((item, index) => {
-  item.addEventListener("verifyCode", (event) => {
-    let messageError = document.querySelectorAll(
-      ".umboarding-verification-container-opt-code span"
-    );
-    if (event.detail) {
-      userInformation[index].data = allInputs.item(index).getValueInput();
-      userInformation[index].isValid = event.detail;
-      allInputs.item(index).setIsDisabledInput(userInformation[index].isValid);
-
-      item.style.display = "none";
-      messageError.item(index).style.display = "none";
-      enableControls(index);
-    } else {
-      messageError
-        .item(index)
-        .classList.toggle(
-          "umboarding-verification-container-opt-code-animation-error"
-        );
-      item.resetCode();
-      messageError.item(index).style.display = "block";
-    }
-    validationButton();
-  });
-});
-
-function submitCode(index) {
-  stopCountdown(index);
-  allCodes.item(index).resetCode();
-  allInputs.item(index).setIsDisabledInput(true);
-  allInputs.item(index).setValueInput(allInputs.item(index).getValueInput());
-  resendCodeButtons.item(index).style.display = "block";
-  submitCodeButtons.item(index).disabled = true;
-  updateCountdown(20, index);
-  document.querySelectorAll(".umboarding-verification-container-opt-code")[
-    index
-  ].style.display = "flex";
-  allCodes[index].style.display = "block";
-  allCodes[index].inputFocus();
-}
-
-document
-  .querySelector(".umboarding-verification-container")
-  .addEventListener("focusout", () => {
-    document.querySelector(
-      ".umboarding-verification-container"
-    ).style.transform = "translateY(0)";
-  });
-
-function handleToggleRedirect() {
-  window.parent.document.getElementById("review").style.display = "none";
-  window.parent.document.getElementById("address").scrollIntoView();
-}
+// function handleToggleRedirect() {
+//   window.parent.document.getElementById("review").style.display = "none";
+//   window.parent.document.getElementById("address").scrollIntoView();
+// }

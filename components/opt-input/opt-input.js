@@ -93,3 +93,5 @@ class OptInput extends HTMLElement {
 }
 
 customElements.define("opt-input", OptInput);
+
+export { OptInput };

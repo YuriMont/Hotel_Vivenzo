@@ -1,3 +1,4 @@
+import "/components/range/input-range.js"
 
 const templateLightingContent = document.createElement("template");
 templateLightingContent.innerHTML = `
@@ -33,3 +34,6 @@ class LightingContent extends HTMLElement {
 }
 
 customElements.define("lighting-content", LightingContent);
+
+export { LightingContent }
+

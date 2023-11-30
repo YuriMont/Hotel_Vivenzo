@@ -30,7 +30,7 @@
     background-color: var(--orange-500);
 }
 
-.umboarding-success-container button {
+.umboarding-success-container a {
   border: none;
   margin-top: 2rem;
   border-radius: var(--rounded-full);

@@ -1,4 +1,3 @@
-
 const templateTvContent = document.createElement("template");
 templateTvContent.innerHTML = `
 <link rel="stylesheet" href="/pages/reservation/home/options/tv/tv-content.css"/>
@@ -18,3 +17,5 @@ class TvContent extends HTMLElement {
 }
 
 customElements.define("tv-content", TvContent);
+
+export { TvContent }

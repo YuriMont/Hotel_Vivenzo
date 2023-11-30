@@ -15,3 +15,5 @@ class SpinLoader extends HTMLElement {
 }
 
 customElements.define("spin-loader", SpinLoader);
+
+export { SpinLoader };

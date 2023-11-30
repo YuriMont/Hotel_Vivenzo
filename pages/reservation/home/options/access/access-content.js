@@ -1,3 +1,6 @@
+import "/pages/reservation/home/options/access/limited/limited.js";
+import "/pages/reservation/home/options/access/vip/vip.js";
+
 const templateAccessContent = document.createElement("template");
 templateAccessContent.innerHTML = `
 <link rel="stylesheet" href="/pages/reservation/home/options/access/access-content.css">
@@ -109,7 +112,7 @@ class AccessContent extends HTMLElement {
             .handleToggleOpen()
         );
 
-        this.shadowRoot
+      this.shadowRoot
         .querySelectorAll("button")
         .item(1)
         .addEventListener("click", () =>
@@ -123,3 +126,5 @@ class AccessContent extends HTMLElement {
 }
 
 customElements.define("access-content", AccessContent);
+
+export { AccessContent };

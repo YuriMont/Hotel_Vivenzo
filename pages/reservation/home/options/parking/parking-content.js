@@ -1,3 +1,5 @@
+import "/components/info-card/info-card.js";
+
 const templateParkingContent = document.createElement("template");
 templateParkingContent.innerHTML = `
 <link rel="stylesheet" href="/pages/reservation/home/options/parking/parking-content.css">
@@ -59,3 +61,5 @@ class ParkingContent extends HTMLElement {
 }
 
 customElements.define("parking-content", ParkingContent);
+
+export { ParkingContent }

@@ -46,3 +46,5 @@ class ItemList extends HTMLElement {
 }
 
 customElements.define("item-list", ItemList);
+
+export { ItemList }

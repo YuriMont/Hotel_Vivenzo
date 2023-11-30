@@ -8,9 +8,9 @@
 }
 
 .umboarding-initial-container {
-  width: 100vw;
-  height: 100dvh;
-  display: none;
+  width: 100dvw;
+  min-height: 100dvh;
+  display: flex;
   padding: 2rem;
   gap: 2rem;
   flex-direction: column;

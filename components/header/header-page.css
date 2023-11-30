@@ -3,7 +3,8 @@
 .header-page-container{
   position: fixed;
   top: 0;
-  width: 100dvw;
+  left: 0;
+  width: 100vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -11,10 +12,8 @@
   border-bottom-left-radius: var(--rounded-lg);
   border-bottom-right-radius: var(--rounded-lg);
   padding: 0.5rem;
-  height: 7rem;
   font-size: var(--text-base);
   font-weight: var(--font-regular);
-  z-index: 1000;
 }
 
 .header-page-container h1{
@@ -33,7 +32,7 @@
   background-color: var(--purple-600);
 }
 
-.header-page-container button {
+.header-page-container a {
   border: none;
   display: flex;
   justify-content: center;

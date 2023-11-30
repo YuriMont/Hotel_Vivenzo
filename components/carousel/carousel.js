@@ -123,3 +123,5 @@ class CarouselContent extends HTMLElement {
 }
 
 customElements.define("carousel-content", CarouselContent);
+
+export { CarouselContent }

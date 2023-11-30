@@ -1,3 +1,5 @@
+import "/components/open-door-button/open-door-button.js";
+
 const templateRoomInformation = document.createElement("template");
 templateRoomInformation.innerHTML = `
 <link rel="stylesheet" href="/components/room-information/room-information.css" />
@@ -141,3 +143,5 @@ class RoomInformation extends HTMLElement {
 }
 
 customElements.define("room-information", RoomInformation);
+
+export { RoomInformation }

@@ -1,3 +1,5 @@
+import "/components/range/input-range.js"
+
 const templateAirConditioningContent = document.createElement("template");
 templateAirConditioningContent.innerHTML = `
 <link rel="stylesheet" href="/pages/reservation/home/options/air-conditioning/air-conditioning-content.css">
@@ -22,3 +24,5 @@ class AirConditioningContent extends HTMLElement {
 }
 
 customElements.define("air-conditioning-content", AirConditioningContent);
+
+export { AirConditioningContent }

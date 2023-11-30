@@ -77,3 +77,5 @@ class HotelContainer extends HTMLElement {
   }
   
   customElements.define("hotel-container", HotelContainer);
+
+  export { HotelContainer }

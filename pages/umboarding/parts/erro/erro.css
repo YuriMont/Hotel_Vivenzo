@@ -30,7 +30,7 @@
     background-color: var(--orange-500);
 }
 
-.umboarding-error-container button {
+.umboarding-error-container a {
   border: none;
   margin-top: 2rem;
   border-radius: var(--rounded-full);

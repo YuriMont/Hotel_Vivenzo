@@ -75,3 +75,5 @@ class LanguageSelect extends HTMLElement {
 }
 
 customElements.define("language-select", LanguageSelect);
+
+export { LanguageSelect };

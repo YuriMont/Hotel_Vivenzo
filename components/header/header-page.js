@@ -1,11 +1,13 @@
+import "/components/language-select/language-select.js";
+
 const templateHeaderPage = document.createElement("template");
 templateHeaderPage.innerHTML = `
 <link rel="stylesheet" href="/components/header/header-page.css" />
 
 <div class="header-page-container">
-    <button id="back">
+    <a href="#reservations">
        <img src="/components/header/icons/back.svg" alt="back">
-    </button>
+    </a>
     <h1 id="title-header">Hotel Vivenzo</h1>
 
     <language-select></language-select>
@@ -21,31 +23,14 @@ class HeaderPage extends HTMLElement {
     this.headerContent = this.shadowRoot.querySelector(
       ".header-page-container"
     );
-    this._titleHeader = "";
-    this._typeHeader = "";
-    this.isNotSafari = !(
-      /Safari/.test(navigator.userAgent) &&
-      /Apple Computer/.test(navigator.vendor)
-    );
-    this.btnBack = this.shadowRoot.getElementById("back");
-
-    document.addEventListener("DOMContentLoaded", () => {
-      this.btnBack.addEventListener("click", this.toggleBack.bind(this));
-
-      window.addEventListener("scroll", () => {this.headerContent.style.height = "4rem";});
-    });
-  }
-
-  toggleBack() {
-    const page = window.parent.document.getElementById("reservations");
-    if (this.isNotSafari) {
-      page.style.display = "block";
-    }
-    page.scrollIntoView();
   }
 
   set titleHeader(title_header) {
     this.shadowRoot.getElementById("title-header").innerText = title_header;
+  }
+
+  headerSize(size) {
+    this.headerContent.style.height = size === "lg" ? "7rem" : "4rem";
   }
 
   set typeHeader(type) {
@@ -63,3 +48,5 @@ class HeaderPage extends HTMLElement {
 }
 
 customElements.define("header-page", HeaderPage);
+
+export { HeaderPage };

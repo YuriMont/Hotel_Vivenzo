@@ -1,3 +1,5 @@
+import "/components/item-list/item-list.js";
+
 const templateMinibarContent = document.createElement("template");
 templateMinibarContent.innerHTML = `
 <link rel="stylesheet" href="/pages/reservation/home/options/minibar/minibar-content.css">
@@ -79,3 +81,5 @@ class MinibarContent extends HTMLElement {
 }
 
 customElements.define("minibar-content", MinibarContent);
+
+export { MinibarContent }

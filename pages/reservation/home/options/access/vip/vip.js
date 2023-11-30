@@ -52,3 +52,5 @@ class AccessContentVip extends HTMLElement {
 }
 
 customElements.define("access-content-vip", AccessContentVip);
+
+export { AccessContentVip }

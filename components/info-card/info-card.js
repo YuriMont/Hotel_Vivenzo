@@ -22,3 +22,5 @@ class InfoCard extends HTMLElement {
 }
 
 customElements.define("info-card", InfoCard);
+
+export { InfoCard }

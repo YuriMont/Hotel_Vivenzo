@@ -21,3 +21,5 @@ class SearchInput extends HTMLElement {
   }
   
   customElements.define("search-input", SearchInput);
+
+  export { SearchInput }

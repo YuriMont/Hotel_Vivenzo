@@ -6,49 +6,100 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
+    <style>
+      body > * {
+        display: none;
+      }
+      .umboarding-initial-container-spinner {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
     <link rel="stylesheet" href="main.css" />
     <title>Vivenzo</title>
   </head>
   <body>
-    <div class="main-container">
-      <iframe id="umboarding" src="/pages/umboarding/umboarding.html"></iframe>
-      <iframe
-        id="identification"
-        src="/pages/umboarding/parts/identification/identification.html"
-      ></iframe>
-      <iframe
-        id="review"
-        src="/pages/umboarding/parts/review/review.html"
-      ></iframe>
-      <iframe
-        id="verification"
-        src="pages/umboarding/parts/verification/verification.html"
-      ></iframe>
-      <iframe
-        id="address"
-        src="/pages/umboarding/parts/address/address.html"
-      ></iframe>
-      <iframe
-        id="payment"
-        src="/pages/umboarding/parts/payment/payment.html"
-      ></iframe>
-      <iframe
-        id="waiting"
-        src="/pages/umboarding/parts/waiting/waiting.html"
-      ></iframe>
-      <iframe id="error" src="/pages/umboarding/parts/erro/erro.html"></iframe>
-      <iframe
-        id="success"
-        src="/pages/umboarding/parts/success/success.html"
-      ></iframe>  
-      <iframe
-        id="reservations"
-        src="/pages/reservation/reservations.html"
-      ></iframe>
-      <iframe id="home" src="/pages/reservation/home/home.html"></iframe>
-    </div>
+    <script type="module" src="/pages/umboarding/umboarding.js"></script>
+    <script
+      type="module"
+      src="/pages/umboarding/parts/identification/identification.js"
+    ></script>
+    <script
+      type="module"
+      src="/pages/umboarding/parts/review/review.js"
+    ></script>
+    <script
+      type="module"
+      src="/pages/umboarding/parts/verification/verification.js"
+    ></script>
+    <script
+      type="module"
+      src="/pages/umboarding/parts/address/address.js"
+    ></script>
+    <script
+      type="module"
+      src="/pages/umboarding/parts/payment/payment.js"
+    ></script>
+    <script
+      type="module"
+      src="/pages/umboarding/parts/waiting/waiting.js"
+    ></script>
+    <script type="module" src="/pages/umboarding/parts/erro/erro.js"></script>
+    <script
+      type="module"
+      src="/pages/umboarding/parts/success/success.js"
+    ></script>
+    <script type="module" src="/pages/reservation/reservations.js"></script>
+    <script type="module" src="/pages/reservation/home/home.js"></script>
+
+    <spin-loader class="umboarding-initial-container-spinner"></spin-loader>
+    <umboarding-webcomponent id="umboarding"></umboarding-webcomponent>
+    <identification-webcomponent
+      id="identification"
+    ></identification-webcomponent>
+    <review-webcomponent id="review"></review-webcomponent>
+    <verification-webcomponent id="verification"></verification-webcomponent>
+    <address-webcomponent id="address"></address-webcomponent>
+    <payment-webcomponent id="payment"></payment-webcomponent>
+    <waiting-webcomponent id="waiting"></waiting-webcomponent>
+    <error-webcomponent id="error"></error-webcomponent>
+    <success-webcomponent id="success"></success-webcomponent>
+    <reservations-webcomponent id="reservations"></reservations-webcomponent>
+    <home-webcomponent id="home"></home-webcomponent>
 
     <script>
+      function checkUrlAndDisplayElement() {
+        var id = window.location.href.split("#")[1];
+
+        var elements = document.body.getElementsByTagName("*");
+
+        for (var i = 0; i < elements.length; i++) {
+          if (elements[i].id === id) {
+            elements[i].style.display = "block";
+          } else {
+            elements[i].style.display = "none";
+          }
+        }
+
+        if (id === undefined) {
+          document.getElementById("umboarding").style.display = "block";
+        }
+      }
+
+      window.addEventListener("hashchange", checkUrlAndDisplayElement);
+
+      document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelector(
+          ".umboarding-initial-container-spinner"
+        ).style.display = "none";
+
+        window.location.href = "#umboarding";
+        checkUrlAndDisplayElement()
+      });
+
       window.addEventListener("beforeunload", function (e) {
         e.preventDefault();
         e.returnValue = "";

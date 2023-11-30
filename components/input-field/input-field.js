@@ -3,7 +3,7 @@ templateInputField.innerHTML = `
 <link rel="stylesheet" href="/components/input-field/input-field.css" />
 <div class="input-field-container">
       <div class="input-field-container-text">
-        <input id="input-field" required/>
+        <input id="input-field" tabindex="0" required/>
         <label id="label-text"></label>
       </div>
       <div class="input-field-container-popover">
@@ -33,12 +33,18 @@ class InputField extends HTMLElement {
 
     document.addEventListener("DOMContentLoaded", () => {
       this.btn.addEventListener("click", this.togglePopover.bind(this));
-      this.inputField.addEventListener("input", this.verifyModification.bind(this));
+      this.inputField.addEventListener(
+        "input",
+        this.verifyModification.bind(this)
+      );
     });
   }
 
   togglePopover() {
-    this.shadowRoot.getElementById('content-popover').style.display = this.isPopoverVisible ? "none" : "flex";
+    this.shadowRoot.getElementById("content-popover").style.display = this
+      .isPopoverVisible
+      ? "none"
+      : "flex";
     this.isPopoverVisible = !this.isPopoverVisible;
   }
 
@@ -74,8 +80,8 @@ class InputField extends HTMLElement {
   }
 
   setValueInput(value) {
-    this.initialText = value
-    this.inputField.value = value
+    this.initialText = value;
+    this.inputField.value = value;
   }
 
   getValueInput() {
@@ -83,7 +89,7 @@ class InputField extends HTMLElement {
   }
 
   setIsDisabledInput(isDisabled) {
-    this.inputField.disabled = isDisabled
+    this.inputField.disabled = isDisabled;
   }
 
   set contentPopover(content) {
@@ -103,3 +109,5 @@ class InputField extends HTMLElement {
 }
 
 customElements.define("input-field", InputField);
+
+export { InputField };

@@ -76,3 +76,5 @@ class ModalPopUp extends HTMLElement {
 }
 
 customElements.define("modal-popup", ModalPopUp);
+
+export { ModalPopUp }

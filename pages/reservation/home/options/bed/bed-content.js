@@ -1,3 +1,5 @@
+import "/components/item-list/item-list.js"
+
 const templateBedContent = document.createElement("template");
 templateBedContent.innerHTML = `
 <link rel="stylesheet" href="/pages/reservation/home/options/bed/bed-content.css">
@@ -73,3 +75,5 @@ class BedContent extends HTMLElement {
 }
 
 customElements.define("bed-content", BedContent);
+
+export { BedContent }

@@ -1,6 +1,6 @@
 @import url("/main.css");
 
-body{
+body {
   overflow-y: auto;
 }
 
@@ -8,26 +8,48 @@ body{
   position: relative;
 }
 .reservation-skeleton::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 10;
-  background: linear-gradient(90deg, var(--purple-700), var(--purple-400), var(--purple-700));
+  background: linear-gradient(
+    90deg,
+    var(--purple-700),
+    var(--purple-400),
+    var(--purple-700)
+  );
   background-size: 200%;
   animation: skeleton 1s infinite reverse;
 }
 
-
 .reservation-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  width: 100vw;
+  height: 100dvh;
+  animation: coming-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  z-index: 1;
+}
+
+.reservation-container main {
   padding: 1rem;
-  margin-top: 7rem;
-  margin-bottom: 8vh;
+  overflow: auto;
+  height: 100dvh;
+  padding-top: 1rem;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.reservation-container header-page,
+.reservation-container footer-page {
+  display: none;
 }
 
 .reservation-container h1 {
@@ -82,7 +104,7 @@ body{
   width: 100%;
 }
 
-.reservation-container-buttons-controls{
+.reservation-container-buttons-controls {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -107,7 +129,7 @@ body{
 
 .reservation-container-buttons-controls-icon p {
   font-size: var(--text-xs);
-  color: var(--purple-400)
+  color: var(--purple-400);
 }
 
 .reservation-container-buttons > modal-popup {
@@ -118,6 +140,15 @@ body{
 .reservation-container-buttons > open-door-button {
   display: grid;
   grid-template-columns: 1fr;
+}
+
+@keyframes coming-down {
+  0% {
+    transform: translateY(80%);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes skeleton {

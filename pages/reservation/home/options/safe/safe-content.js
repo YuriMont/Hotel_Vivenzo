@@ -51,3 +51,5 @@ class SafeContent extends HTMLElement {
 }
 
 customElements.define("safe-content", SafeContent);
+
+export { SafeContent }

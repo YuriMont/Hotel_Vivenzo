@@ -1,3 +1,5 @@
+import "/components/item-list/item-list.js"
+
 const templateBreakfast = document.createElement("template");
 templateBreakfast.innerHTML = `
 <link rel="stylesheet" href="/pages/reservation/home/options/breakfast/breakfast-content.css">
@@ -118,3 +120,5 @@ class BreakfastContent extends HTMLElement {
 }
 
 customElements.define("breakfast-content", BreakfastContent);
+
+export { BreakfastContent }

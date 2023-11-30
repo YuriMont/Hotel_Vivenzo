@@ -6,21 +6,21 @@
   place-items: end;
   bottom: 0;
   left: 0;
-  min-width: 100vw;
+  width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding-bottom: 8vh;
-  padding-top: 10vh;
+  padding-bottom: 4rem;
+  padding-top: 10rem;
   z-index: 1000;
   overflow-y: auto;
 }
 
 .modal-popup-container-content {
   position: relative;
-  bottom: 0;
+  top: 100%;
   background-color: #fefefe;
   padding: 1.25rem;
   border-radius: var(--rounded-xl) var(--rounded-xl) 0 0;
+  box-shadow: 0 0 0 100000px rgba(0, 0, 0, 0.5);
   width: 100%;
   z-index: 2000;
 }
