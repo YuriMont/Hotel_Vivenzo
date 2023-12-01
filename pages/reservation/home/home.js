@@ -245,10 +245,11 @@ class HomeWebComponent extends HTMLElement {
     document.addEventListener("DOMContentLoaded", () => {
       window.onload = () => this.verifyURL();
       window.addEventListener("hashchange", () => this.verifyURL());
-      this.shadowRoot.querySelector('main').addEventListener('scroll', () => {
-        this.header.headerSize('sm')
-        this.shadowRoot.querySelector('.home-container').style.paddingTop = '4rem';
-      })
+      this.shadowRoot.querySelector("main").addEventListener("scroll", () => {
+        this.header.headerSize("sm");
+        this.shadowRoot.querySelector(".home-container").style.paddingTop =
+          "4rem";
+      });
 
       this.shadowRoot
         .querySelectorAll(".reservation-container-buttons-details")
@@ -259,32 +260,28 @@ class HomeWebComponent extends HTMLElement {
       this.shadowRoot
         .querySelector(".home-container room-information")
         .addEventListener("focusInInput", (event) => {
-          event.detail
-            ? (this.footer.style.display =
-                "none")
-            : (this.footer.querySelector("footer-page").style.display =
-                "flex");
+          this.footer.style.display = event.detail ? "none" : "flex";
         });
 
-        this.shadowRoot.querySelectorAll("details").forEach((element) => {
-            element.addEventListener("toggle", function () {
-              if (element.hasAttribute("open")) {
-                element.scrollIntoView()
-              }
-            });
-          });
-          
+      this.shadowRoot.querySelectorAll("details").forEach((element) => {
+        element.addEventListener("toggle", function () {
+          if (element.hasAttribute("open")) {
+            element.scrollIntoView();
+          }
+        });
+      });
     });
   }
 
   executeFunctionWhenElementInViewport() {
     if (this.isInHomeSection) {
-      this.shadowRoot.querySelector('.home-container').style.paddingTop = '7rem'
+      this.shadowRoot.querySelector(".home-container").style.paddingTop =
+        "7rem";
       this.footer.style.display = "flex";
       this.header.style.display = "flex";
-      this.header.headerSize('lg')
+      this.header.headerSize("lg");
       let skeletons = this.allHomeSkeleton;
-      document.body.classList.add('home-body')
+      document.body.classList.add("home-body");
       setTimeout(function () {
         skeletons.forEach((item) => {
           item.classList.remove("home-skeleton");
