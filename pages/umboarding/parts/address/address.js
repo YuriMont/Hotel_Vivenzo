@@ -140,9 +140,7 @@ class AddressWebComponent extends HTMLElement {
           );
 
           item.addEventListener("focusin", () => {
-            console.log('fora')
             setTimeout(() => {
-              console.log('dentro')
               this.scrollToView();
             }, 500);
           });

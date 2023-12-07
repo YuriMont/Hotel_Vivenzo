@@ -128,7 +128,7 @@ class PaymentWebComponent extends HTMLElement {
         .addEventListener("focusin", () => {
           setTimeout(() => {
             this.scrollToView();
-          }, 200);
+          }, 780);
         });
 
       this.shadowRoot
@@ -163,7 +163,46 @@ class PaymentWebComponent extends HTMLElement {
     const card = this.shadowRoot.querySelector(
       ".umboarding-payment-container-actions"
     );
-    card.scrollIntoView({ behavior: "smooth" });
+    card.scrollIntoView();
+  }
+
+  scrollCustomImplementation (element) {
+    let start = null;
+    let target = element ? element.getBoundingClientRect().top : 0;
+    let firstPos = window.pageYOffset || document.documentElement.scrollTop;
+    let pos = 0;
+  
+    function showAnimation (timestamp) {
+      if (!start) {
+        start = timestamp || new Date().getTime();
+      }
+  
+      var elapsed = timestamp - start;
+      var progress = elapsed / 600; // duração da animação 600ms
+  
+      var outQuad = function outQuad (n) {
+        return n * (2 - n);
+      };
+  
+      var easeInPercentage = +outQuad(progress).toFixed(2);
+  
+      pos = target === 0 ? firstPos - firstPos * easeInPercentage : firstPos + target * easeInPercentage;
+  
+      window.scrollTo(0, pos);
+  
+      if (target !== 0 && pos >= firstPos + target || target === 0 && pos <= 0) {
+        cancelAnimationFrame(start);
+        if (element) {
+          element.setAttribute("tabindex", -1);
+          element.focus();
+        }
+        pos = 0;
+      } else {
+        window.requestAnimationFrame(showAnimation);
+      }
+    }
+  
+    window.requestAnimationFrame(showAnimation);
   }
 
   nextInput(event, index) {

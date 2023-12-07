@@ -116,7 +116,7 @@ class VerificationWebComponent extends HTMLElement {
         .addEventListener("focusin", () => {
           setTimeout(() => {
             this.scrollToView();
-          }, 700);
+          }, 500);
         });
 
       this.shadowRoot
