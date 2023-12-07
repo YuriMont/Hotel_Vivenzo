@@ -128,7 +128,7 @@ class PaymentWebComponent extends HTMLElement {
         .addEventListener("focusin", () => {
           setTimeout(() => {
             this.scrollToView();
-          }, 1000);
+          }, 200);
         });
 
       this.shadowRoot
