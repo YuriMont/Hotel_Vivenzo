@@ -181,13 +181,10 @@ class ReservationsWebComponent extends HTMLElement {
       window.onload = () => this.verifyURL();
 
       this.shadowRoot.querySelectorAll(".reservation-container-buttons-details").forEach((element) => {
-        element.addEventListener('click', () => this.nextPage())
+        element.addEventListener('click', () => this.previousPage())
       })  
 
-      this.shadowRoot.querySelector('main').addEventListener('scroll', () => {
-        this.header.headerSize('sm')
-        this.shadowRoot.querySelector('.reservation-container').style.paddingTop = '4rem';
-      })
+      this.shadowRoot.querySelector('main').addEventListener('scroll', () => this.changeHeaderSize())
 
       this.shadowRoot
         .querySelector(".reservation-container search-input")
@@ -223,7 +220,20 @@ class ReservationsWebComponent extends HTMLElement {
     }
   }
 
-  nextPage(){
+  changeHeaderSize() {
+    let element = this.shadowRoot.querySelector('main');
+    if (element.scrollTop != 0) {
+      this.header.headerSize("sm");
+      this.shadowRoot.querySelector(".reservation-container").style.paddingTop =
+        "4rem";
+    } else {
+      this.header.headerSize("lg");
+      this.shadowRoot.querySelector(".reservation-container").style.paddingTop =
+        "7rem";
+    }
+  }
+
+  previousPage(){
     window.location.href = "#home"
   }
 
